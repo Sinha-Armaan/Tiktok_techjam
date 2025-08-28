@@ -1,0 +1,203 @@
+<mxfile host="65bd71144e">
+    <diagram id="CDS-Class-Diagram" name="CDS Class Diagram">
+        <mxGraphModel dx="2066" dy="1129" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                
+                <!-- Evidence Models Layer -->
+                <mxCell id="EvidencePack" value="&lt;&lt;Pydantic Model&gt;&gt;&#xa;EvidencePack&#xa;────────────&#xa;+ feature_name: str&#xa;+ repo: Optional[str]&#xa;+ timestamp: datetime&#xa;+ static_signals: StaticSignals&#xa;+ runtime_signals: Optional[RuntimeSignals]&#xa;+ metadata: EvidenceMetadata&#xa;+ attachments: List[EvidenceAttachment]&#xa;────────────&#xa;+ merge(other: EvidencePack): EvidencePack&#xa;+ quality_score(): float&#xa;+ validate(): bool" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="320" height="200" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="StaticSignals" value="&lt;&lt;Pydantic Model&gt;&gt;&#xa;StaticSignals&#xa;────────────&#xa;+ geo_branching: List[GeoSignal]&#xa;+ age_checks: List[AgeCheckSignal]&#xa;+ data_residency: List[DataResidencySignal]&#xa;+ reporting_clients: List[str]&#xa;+ reco_system: bool&#xa;+ pf_controls: bool&#xa;+ flags: List[FlagSignal]&#xa;+ tags: List[str]&#xa;────────────&#xa;+ all_signals(): List[StaticSignal]&#xa;+ merge(other: StaticSignals): StaticSignals&#xa;+ signal_count(): int" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="280" width="280" height="180" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="RuntimeSignals" value="&lt;&lt;Pydantic Model&gt;&gt;&#xa;RuntimeSignals&#xa;────────────&#xa;+ persona: Optional[Persona]&#xa;+ blocked_actions: List[str]&#xa;+ ui_states: List[str]&#xa;+ flag_resolutions: List[FlagResolution]&#xa;+ network: List[NetworkTrace]&#xa;+ trace_uri: Optional[str]&#xa;────────────&#xa;+ merge(other: RuntimeSignals): RuntimeSignals&#xa;+ has_evidence(): bool" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="280" width="280" height="160" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="RulesResult" value="&lt;&lt;Pydantic Model&gt;&gt;&#xa;RulesResult&#xa;────────────&#xa;+ feature_name: str&#xa;+ rule_results: List[RuleResult]&#xa;+ overall_verdict: str&#xa;+ confidence_score: float&#xa;+ evaluation_timestamp: datetime&#xa;────────────&#xa;+ get_high_risk_rules(): List[RuleResult]&#xa;+ get_recommendations(): List[str]&#xa;+ to_summary(): Dict" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="40" width="280" height="140" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="FinalRecord" value="&lt;&lt;Pydantic Model&gt;&gt;&#xa;FinalRecord&#xa;────────────&#xa;+ feature_name: str&#xa;+ analysis_timestamp: datetime&#xa;+ compliance_decision: ComplianceDecision&#xa;+ evidence_summary: EvidenceSummary&#xa;+ llm_analysis: LLMAnalysis&#xa;+ audit_trail: AuditTrail&#xa;────────────&#xa;+ export_csv(): Dict&#xa;+ export_html(): str&#xa;+ export_json(): Dict" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="200" width="280" height="140" as="geometry"/>
+                </mxCell>
+
+                <!-- Scanner Classes -->
+                <mxCell id="StaticAnalysisEngine" value="&lt;&lt;Service&gt;&gt;&#xa;StaticAnalysisEngine&#xa;────────────&#xa;+ scanners: List[ComplianceScanner]&#xa;+ config: ScannerConfig&#xa;────────────&#xa;+ scan_repository(repo: Path, feature: str): StaticSignals&#xa;+ scan_incremental(repo: Path, since: str): StaticSignals&#xa;+ add_scanner(scanner: ComplianceScanner): void&#xa;+ health_check(): Dict[str, bool]" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="500" width="320" height="120" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="ComplianceScanner" value="&lt;&lt;Abstract&gt;&gt;&#xa;ComplianceScanner&#xa;────────────&#xa;+ name: str&#xa;────────────&#xa;+ extract_signals(repo: Path, feature: str): StaticSignals&#xa;+ health_check(): bool&#xa;+ get_version(): str" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="660" width="280" height="100" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="SemgrepScanner" value="SemgrepScanner&#xa;────────────&#xa;+ rules_dir: Path&#xa;+ timeout: int&#xa;────────────&#xa;+ extract_signals(repo: Path, feature: str): StaticSignals&#xa;+ run_semgrep(repo: Path): List[Dict]&#xa;+ convert_results(results: List[Dict]): StaticSignals" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="660" width="280" height="100" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="TreeSitterScanner" value="TreeSitterScanner&#xa;────────────&#xa;+ languages: List[str]&#xa;+ parsers: Dict[str, Parser]&#xa;────────────&#xa;+ extract_signals(repo: Path, feature: str): StaticSignals&#xa;+ parse_ast(file: Path): Tree&#xa;+ extract_patterns(tree: Tree): List[Match]" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="660" width="280" height="100" as="geometry"/>
+                </mxCell>
+
+                <!-- Rules Engine Classes -->
+                <mxCell id="ComplianceRulesEngine" value="&lt;&lt;Service&gt;&gt;&#xa;ComplianceRulesEngine&#xa;────────────&#xa;+ rules: List[ComplianceRule]&#xa;+ evaluator: JsonLogicEvaluator&#xa;────────────&#xa;+ evaluate_feature(evidence: EvidencePack): RulesResult&#xa;+ evaluate_rule(rule: ComplianceRule, evidence: EvidencePack): RuleResult&#xa;+ load_rules(rules_dir: Path): List[ComplianceRule]&#xa;+ calculate_confidence(results: List[RuleResult]): float" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="1000" y="40" width="350" height="120" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="JsonLogicEvaluator" value="JsonLogicEvaluator&#xa;────────────&#xa;+ operators: Dict[str, Callable]&#xa;────────────&#xa;+ apply(rule: Dict, data: Dict): Any&#xa;+ validate_rule(rule: Dict): bool&#xa;+ get_referenced_fields(rule: Dict): List[str]" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="1000" y="200" width="280" height="100" as="geometry"/>
+                </mxCell>
+
+                <!-- LLM Integration Classes -->
+                <mxCell id="LLMAnalysisEngine" value="&lt;&lt;Service&gt;&gt;&#xa;LLMAnalysisEngine&#xa;────────────&#xa;+ client: LLMClient&#xa;+ prompt_manager: PromptManager&#xa;+ policy_manager: PolicySnippetManager&#xa;────────────&#xa;+ explain_compliance_result(result: RulesResult, evidence: EvidencePack): LLMExplanation&#xa;+ generate_recommendations(explanation: LLMExplanation): List[Recommendation]&#xa;+ build_analysis_context(result: RulesResult, evidence: EvidencePack): Dict" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="1000" y="340" width="400" height="120" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="GeminiClient" value="GeminiClient&#xa;────────────&#xa;+ project_id: str&#xa;+ region: str&#xa;+ model: str&#xa;────────────&#xa;+ generate(prompt: str, schema: Dict): Dict&#xa;+ validate_response(response: str, schema: Dict): Dict&#xa;+ health_check(): bool" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="1000" y="500" width="280" height="100" as="geometry"/>
+                </mxCell>
+
+                <!-- CLI Command Classes -->
+                <mxCell id="CDSApp" value="&lt;&lt;Typer App&gt;&gt;&#xa;CDSApp&#xa;────────────&#xa;+ commands: Dict[str, Command]&#xa;+ console: Console&#xa;────────────&#xa;+ main(): void&#xa;+ register_command(name: str, cmd: Command): void" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f0f0f0;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="800" width="280" height="100" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="ScanCommand" value="&lt;&lt;Command&gt;&gt;&#xa;ScanCommand&#xa;────────────&#xa;+ scanner: StaticAnalysisEngine&#xa;────────────&#xa;+ execute(repo: Path, feature: str, output: Path): void&#xa;+ format_output(signals: StaticSignals): Table" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f0f0f0;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="800" width="280" height="80" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="PipelineCommand" value="&lt;&lt;Command&gt;&gt;&#xa;PipelineCommand&#xa;────────────&#xa;+ scanner: StaticAnalysisEngine&#xa;+ prober: RuntimeProbeEngine&#xa;+ rules_engine: ComplianceRulesEngine&#xa;+ llm_engine: LLMAnalysisEngine&#xa;────────────&#xa;+ execute(repo: Path, features: List[str]): void&#xa;+ orchestrate_pipeline(feature: str): FinalRecord" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f0f0f0;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="800" width="320" height="100" as="geometry"/>
+                </mxCell>
+
+                <!-- Relationships -->
+                <!-- Composition relationships -->
+                <mxCell id="" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;" edge="1" parent="1" source="StaticSignals" target="EvidencePack">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="180" y="280" as="sourcePoint"/>
+                        <mxPoint x="180" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                
+                <mxCell id="" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;" edge="1" parent="1" source="RuntimeSignals" target="EvidencePack">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="500" y="280" as="sourcePoint"/>
+                        <mxPoint x="250" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- Inheritance relationships -->
+                <mxCell id="" value="" style="endArrow=block;endSize=16;endFill=0;html=1;" edge="1" parent="1" source="SemgrepScanner" target="ComplianceScanner">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="500" y="760" as="sourcePoint"/>
+                        <mxPoint x="320" y="760" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=block;endSize=16;endFill=0;html=1;" edge="1" parent="1" source="TreeSitterScanner" target="ComplianceScanner">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="680" y="720" as="sourcePoint"/>
+                        <mxPoint x="320" y="720" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- Dependency relationships -->
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="StaticAnalysisEngine" target="ComplianceScanner">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="200" y="620" as="sourcePoint"/>
+                        <mxPoint x="200" y="660" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="StaticAnalysisEngine" target="StaticSignals">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="200" y="500" as="sourcePoint"/>
+                        <mxPoint x="200" y="460" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="ComplianceRulesEngine" target="EvidencePack">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="1000" y="100" as="sourcePoint"/>
+                        <mxPoint x="360" y="140" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="ComplianceRulesEngine" target="RulesResult">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="1000" y="100" as="sourcePoint"/>
+                        <mxPoint x="960" y="100" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="LLMAnalysisEngine" target="RulesResult">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="1000" y="400" as="sourcePoint"/>
+                        <mxPoint x="960" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="LLMAnalysisEngine" target="FinalRecord">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="1000" y="400" as="sourcePoint"/>
+                        <mxPoint x="960" y="270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="ScanCommand" target="StaticAnalysisEngine">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="400" y="800" as="sourcePoint"/>
+                        <mxPoint x="300" y="620" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="PipelineCommand" target="StaticAnalysisEngine">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="680" y="850" as="sourcePoint"/>
+                        <mxPoint x="360" y="620" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="PipelineCommand" target="ComplianceRulesEngine">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="1000" y="850" as="sourcePoint"/>
+                        <mxPoint x="1175" y="160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="PipelineCommand" target="LLMAnalysisEngine">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="1000" y="850" as="sourcePoint"/>
+                        <mxPoint x="1200" y="460" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- Labels and annotations -->
+                <mxCell id="" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="250" width="20" height="20" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="250" width="20" height="20" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="" value="*" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="640" width="20" height="20" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="" value="«uses»" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="100" width="60" height="20" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="" value="«creates»" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2;" vertex="1" parent="1">
+                    <mxGeometry x="900" y="300" width="60" height="20" as="geometry"/>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

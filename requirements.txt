@@ -1,0 +1,9 @@
+typer
+rich
+pydantic
+pandas
+sqlmodel
+jinja2
+httpx
+python-dotenv
+semgrep

@@ -1,0 +1,11 @@
+feature_id,repo_path,description
+user_registration,./sample_repo,User registration and onboarding flow
+content_recommendation,./sample_repo,Content recommendation engine and personalization
+age_verification,./sample_repo,Age verification and parental consent system
+geo_blocking,./sample_repo,Geographic content blocking and restrictions
+data_export,./sample_repo,User data export and portability features
+privacy_settings,./sample_repo,User privacy controls and settings management
+content_moderation,./sample_repo,Content moderation and reporting systems
+messaging_system,./sample_repo,Direct messaging and communication features
+live_streaming,./sample_repo,Live streaming and real-time interactions
+advertising_targeting,./sample_repo,Targeted advertising and behavioral tracking

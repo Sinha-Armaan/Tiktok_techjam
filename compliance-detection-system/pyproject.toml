@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "compliance-detection-system"
+version = "0.1.0"
+description = "Compliance Detection System MVP - Detects geo-specific compliance requirements using static analysis, runtime probes, and LLM reasoning"
+authors = [
+    {name = "CDS Team", email = "team@cds.dev"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+dependencies = [
+    # Core dependencies
+    "pydantic>=2.0.0",
+    "rich>=13.0.0",
+    "typer>=0.9.0",
+    "pandas>=2.0.0",
+    "sqlmodel>=0.0.14",
+    "jinja2>=3.1.0",
+    
+    # Scanning dependencies
+    "semgrep>=1.45.0",
+    "tree-sitter>=0.20.0",
+    "tree-sitter-languages>=1.8.0",
+    
+    # Runtime dependencies
+    "playwright>=1.40.0",
+    
+    # Rules engine
+    "json-logic-qubit>=0.9.0",
+    
+    # LLM integration
+    "google-cloud-aiplatform>=1.38.0",
+    
+    # Utilities
+    "httpx>=0.25.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "ruff>=0.1.0",
+    "mypy>=1.6.0",
+    "types-requests",
+]
+
+[project.scripts]
+cds = "cds.cli.main:app"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"

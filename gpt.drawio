@@ -1,0 +1,131 @@
+<mxfile host="app.diagrams.net" modified="2025-08-27T00:00:00.000Z" agent="GPT-5 Thinking" version="21.6.9">
+  <diagram id="arch1" name="Geo-Compliance Detection Architecture">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ===== Zones / Containers ===== -->
+        <mxCell id="g1" value="Code Intelligence" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#999999;fillColor=#f5f5f5;align=left;spacing=8;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="420" height="520" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" value="Runtime Validation" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#999999;fillColor=#f5f5f5;fontStyle=1;align=left;spacing=8" vertex="1" parent="1">
+          <mxGeometry x="470" y="30" width="360" height="520" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3" value="Legal Reasoning" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#999999;fillColor=#f5f5f5;fontStyle=1;align=left;spacing=8" vertex="1" parent="1">
+          <mxGeometry x="850" y="30" width="480" height="520" as="geometry"/>
+        </mxCell>
+        <mxCell id="g5" value="Dev Lifecycle" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#999999;fillColor=#f5f5f5;fontStyle=1;align=left;spacing=8" vertex="1" parent="1">
+          <mxGeometry x="30" y="570" width="800" height="310" as="geometry"/>
+        </mxCell>
+        <mxCell id="g4" value="Governance &amp; Audit" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#999999;fillColor=#f5f5f5;fontStyle=1;align=left;spacing=8" vertex="1" parent="1">
+          <mxGeometry x="850" y="570" width="480" height="310" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Code Intelligence Zone ===== -->
+        <mxCell id="codebase" value="Codebase &amp; Configs&#xa;(repos, IaC, feature flags)" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="190" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="static" value="Static &amp; Structural Analyzers&#xa;- AST scanning (geo/age branching)&#xa;- Taint/data-flow (age, location, uploads)&#xa;- Config/infra parsers (regions, storage)&#xa;- Feature flag mining" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="360" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="evnorm" value="Evidence Normalizer&#xa;→ Evidence Pack JSON&#xa;(merge static signals &amp; runtime probes)" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="360" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Runtime Validation Zone ===== -->
+        <mxCell id="runtime" value="Runtime Probes&#xa;- Geo personas (age, country, tz)&#xa;- UI/behavior checks (age gates, download block)&#xa;- Feature-flag resolution&#xa;- Network/trace capture (data movement)" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656" vertex="1" parent="1">
+          <mxGeometry x="500" y="160" width="320" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Legal Reasoning Zone ===== -->
+        <mxCell id="policykb" value="Policy Knowledge Base&#xa;(DSA, CA/FL/UT minors, NCMEC)&#xa;+ RAG chunks" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="870" y="80" width="220" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rules" value="Rules Engine (OPA/Rego)&#xa;- machine-readable obligations&#xa;- checks: missing controls, matched rules&#xa;- confidence scoring" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="870" y="180" width="440" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lexllm" value="LexLLM Explainer&#xa;- consumes Evidence Pack + rule results&#xa;- grounded rationale with code refs &amp; traces&#xa;- patch suggestions&#xa;- JSON/CSV output" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="1030" y="310" width="260" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Governance & Audit Zone ===== -->
+        <mxCell id="evstore" value="Evidence Store (immutable)&#xa;- code file:line slices&#xa;- config snippets, traces&#xa;- content-addressed (hashes)" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="870" y="600" width="440" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="registry" value="Decision Registry&#xa;- rule ver, model+prompt ver&#xa;- reviewer &amp; timestamp&#xa;- feature_id, confidence, severity" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="870" y="720" width="440" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="csv" value="CSV &amp; API Export" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="870" y="825" width="210" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="triage" value="Triage Queue (Human-in-the-loop)" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="1100" y="825" width="210" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Dev Lifecycle Zone ===== -->
+        <mxCell id="orch" value="CI/CD Orchestrator (GitHub Action)&#xa;- PR gate &amp; nightly sweep&#xa;- runs scans &amp; rule checks" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="60" y="600" width="360" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="prgate" value="PR Status &amp; Reports" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="60" y="720" width="360" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="issue" value="Issue Tracker (Jira/Slack)" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="460" y="760" width="320" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== Edges ===== -->
+        <mxCell id="e1" style="endArrow=block;html=1;rounded=0;strokeWidth=2" edge="1" parent="1" source="codebase" target="static">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2" style="endArrow=block;html=1;rounded=0;strokeWidth=2" edge="1" parent="1" source="codebase" target="runtime">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e3" style="endArrow=block;html=1;rounded=0;strokeWidth=2" edge="1" parent="1" source="static" target="evnorm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e4" style="endArrow=block;html=1;rounded=0;strokeWidth=2" edge="1" parent="1" source="runtime" target="evnorm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e5" style="endArrow=block;html=1;rounded=0;strokeWidth=2" edge="1" parent="1" source="evnorm" target="evstore">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e6" style="endArrow=block;html=1;rounded=0;strokeWidth=2" edge="1" parent="1" source="evstore" target="rules">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e7" style="endArrow=block;html=1;rounded=0;strokeWidth=2;dashed=1" edge="1" parent="1" source="policykb" target="rules">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e8" style="endArrow=block;html=1;rounded=0;strokeWidth=2" edge="1" parent="1" source="rules" target="lexllm">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e9" style="endArrow=block;html=1;rounded=0;strokeWidth=2" edge="1" parent="1" source="rules" target="registry">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e10" style="endArrow=block;html=1;rounded=0;strokeWidth=2" edge="1" parent="1" source="lexllm" target="registry">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e11" style="endArrow=block;html=1;rounded=0;strokeWidth=2" edge="1" parent="1" source="registry" target="csv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e12" style="endArrow=block;html=1;rounded=0;strokeWidth=2" edge="1" parent="1" source="registry" target="

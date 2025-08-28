@@ -1,0 +1,178 @@
+{
+  "version": "1.0",
+  "description": "Compliance rules for geographic and demographic-based requirements",
+  "rules": [
+    {
+      "id": "UT_MINORS_CURFEW",
+      "name": "Utah Minors Curfew Enforcement",
+      "description": "Utah requires social media platforms to block access for users under 18 between 10:30 PM and 6:30 AM",
+      "logic": {
+        "and": [
+          {"<": [{"var": "runtime.persona.age"}, 18]},
+          {"==": [{"var": "runtime.persona.country"}, "US"]},
+          {"in": ["UT", {"var": "static.all_countries"}]}
+        ]
+      },
+      "requires_controls": [
+        "curfew_enforcement",
+        "age_verification",
+        "parental_consent_system"
+      ],
+      "regulations": [
+        "Utah Social Media Regulation Act"
+      ],
+      "severity": "high",
+      "enabled": true
+    },
+    {
+      "id": "NCMEC_REPORTING",
+      "name": "NCMEC Mandatory Reporting",
+      "description": "US platforms must report CSAM to National Center for Missing & Exploited Children",
+      "logic": {
+        "or": [
+          {"in": ["NCMEC", {"var": "static.reporting_clients"}]},
+          {"in": ["csam_detection", {"var": "static.tags"}]},
+          {"==": [{"var": "static.reco_system"}, true]},
+          {"in": ["US", {"var": "static.all_countries"}]}
+        ]
+      },
+      "requires_controls": [
+        "ncmec_report_pipeline",
+        "content_moderation",
+        "csam_detection_system"
+      ],
+      "regulations": [
+        "US NCMEC reporting requirements",
+        "18 USC 2258A"
+      ],
+      "severity": "critical",
+      "enabled": true
+    },
+    {
+      "id": "DSA_TRANSPARENCY",
+      "name": "EU Digital Services Act Transparency",
+      "description": "EU platforms must provide transparency reports and user flagging mechanisms",
+      "logic": {
+        "and": [
+          {"in": [{"var": "runtime.persona.country"}, ["FR", "DE", "IT", "ES", "NL", "BE", "AT", "IE"]]},
+          {"or": [
+            {"==": [{"var": "static.reco_system"}, true]},
+            {"in": ["content_moderation", {"var": "static.tags"}]},
+            {"in": ["EU", {"var": "static.all_countries"}]}
+          ]}
+        ]
+      },
+      "requires_controls": [
+        "transparency_reports",
+        "user_flagging_system",
+        "appeal_process",
+        "risk_assessment"
+      ],
+      "regulations": [
+        "EU Digital Services Act"
+      ],
+      "severity": "high",
+      "enabled": true
+    },
+    {
+      "id": "STATE_MINORS_PF_DEFAULT_OFF",
+      "name": "State Minors Privacy Features Default Off",
+      "description": "US state laws require privacy features to be off by default for minors",
+      "logic": {
+        "and": [
+          {"<": [{"var": "runtime.persona.age"}, 18]},
+          {"==": [{"var": "static.pf_controls"}, true]},
+          {"in": ["US", {"var": "static.all_countries"}]}
+        ]
+      },
+      "requires_controls": [
+        "parental_consent",
+        "default_privacy_settings",
+        "age_verification"
+      ],
+      "regulations": [
+        "Various US state minors privacy laws",
+        "Texas HB 18",
+        "California CCPA (minors)"
+      ],
+      "severity": "medium",
+      "enabled": true
+    },
+    {
+      "id": "GDPR_DATA_PROCESSING",
+      "name": "GDPR Lawful Basis for Processing",
+      "description": "EU/EEA users require lawful basis for data processing under GDPR",
+      "logic": {
+        "and": [
+          {"in": [{"var": "runtime.persona.country"}, ["EU", "GB", "CH", "NO", "IS", "LI"]]},
+          {"or": [
+            {"in": ["user_data", {"var": "static.tags"}]},
+            {"in": ["eu-west", {"var": "static.all_regions"}]},
+            {"in": ["EU", {"var": "static.all_countries"}]}
+          ]}
+        ]
+      },
+      "requires_controls": [
+        "consent_management",
+        "data_portability",
+        "right_to_erasure",
+        "privacy_by_design"
+      ],
+      "regulations": [
+        "EU GDPR",
+        "UK Data Protection Act"
+      ],
+      "severity": "high",
+      "enabled": true
+    },
+    {
+      "id": "COPPA_COMPLIANCE",
+      "name": "COPPA Children Under 13 Protection",
+      "description": "US platforms must obtain parental consent for children under 13",
+      "logic": {
+        "and": [
+          {"<": [{"var": "runtime.persona.age"}, 13]},
+          {"==": [{"var": "runtime.persona.country"}, "US"]},
+          {"or": [
+            {"in": ["children_directed", {"var": "static.tags"}]},
+            {"==": [{"var": "static.pf_controls"}, true]}
+          ]}
+        ]
+      },
+      "requires_controls": [
+        "parental_consent",
+        "age_verification",
+        "data_minimization",
+        "no_behavioral_advertising"
+      ],
+      "regulations": [
+        "Children's Online Privacy Protection Act (COPPA)"
+      ],
+      "severity": "critical",
+      "enabled": true
+    },
+    {
+      "id": "UK_AGE_APPROPRIATE_DESIGN",
+      "name": "UK Age Appropriate Design Code",
+      "description": "UK platforms must implement age-appropriate design for child users",
+      "logic": {
+        "and": [
+          {"<": [{"var": "runtime.persona.age"}, 18]},
+          {"==": [{"var": "runtime.persona.country"}, "GB"]},
+          {"in": ["children_access", {"var": "static.tags"}]}
+        ]
+      },
+      "requires_controls": [
+        "privacy_by_design",
+        "default_high_privacy",
+        "data_minimization",
+        "age_appropriate_content"
+      ],
+      "regulations": [
+        "UK Age Appropriate Design Code"
+      ],
+      "severity": "high",
+      "enabled": true
+    }
+  ]
+}

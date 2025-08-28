@@ -1,0 +1,390 @@
+<mxfile host="65bd71144e">
+    <diagram id="CDS-Component-Diagram" name="System Component Architecture">
+        <mxGraphModel dx="2066" dy="1129" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                
+                <!-- System Boundary -->
+                <mxCell id="SystemBoundary" value="Compliance Detection System (CDS)" style="shape=rect;html=1;verticalAlign=top;align=left;spacingTop=-6;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="1200" height="760" as="geometry"/>
+                </mxCell>
+
+                <!-- CLI Interface Component -->
+                <mxCell id="CLIComponent" value="&lt;&lt;component&gt;&gt;&#xa;cds.cli" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="80" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="CLIComponentIcon" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" vertex="1" parent="CLIComponent">
+                    <mxGeometry x="1" y="0" width="20" height="20" as="geometry"/>
+                </mxCell>
+
+                <!-- Static Scanner Component -->
+                <mxCell id="ScannerComponent" value="&lt;&lt;component&gt;&gt;&#xa;cds.scanner" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="80" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="ScannerComponentIcon" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" vertex="1" parent="ScannerComponent">
+                    <mxGeometry x="1" y="0" width="20" height="20" as="geometry"/>
+                </mxCell>
+
+                <!-- Runtime Prober Component -->
+                <mxCell id="RuntimeComponent" value="&lt;&lt;component&gt;&gt;&#xa;cds.runtime" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="80" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="RuntimeComponentIcon" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" vertex="1" parent="RuntimeComponent">
+                    <mxGeometry x="1" y="0" width="20" height="20" as="geometry"/>
+                </mxCell>
+
+                <!-- Rules Engine Component -->
+                <mxCell id="RulesComponent" value="&lt;&lt;component&gt;&gt;&#xa;cds.rules" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="80" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="RulesComponentIcon" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" vertex="1" parent="RulesComponent">
+                    <mxGeometry x="1" y="0" width="20" height="20" as="geometry"/>
+                </mxCell>
+
+                <!-- LLM Integration Component -->
+                <mxCell id="LLMComponent" value="&lt;&lt;component&gt;&gt;&#xa;cds.llm" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+                    <mxGeometry x="960" y="80" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="LLMComponentIcon" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" vertex="1" parent="LLMComponent">
+                    <mxGeometry x="1" y="0" width="20" height="20" as="geometry"/>
+                </mxCell>
+
+                <!-- Evidence Management Component -->
+                <mxCell id="EvidenceComponent" value="&lt;&lt;component&gt;&gt;&#xa;cds.evidence" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="200" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="EvidenceComponentIcon" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" vertex="1" parent="EvidenceComponent">
+                    <mxGeometry x="1" y="0" width="20" height="20" as="geometry"/>
+                </mxCell>
+
+                <!-- Report Generation Component -->
+                <mxCell id="ReportsComponent" value="&lt;&lt;component&gt;&gt;&#xa;cds.reports" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f0f0f0;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="200" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="ReportsComponentIcon" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" vertex="1" parent="ReportsComponent">
+                    <mxGeometry x="1" y="0" width="20" height="20" as="geometry"/>
+                </mxCell>
+
+                <!-- Component Interfaces -->
+                
+                <!-- Scanner Interface -->
+                <mxCell id="ScannerInterface" value="&lt;&lt;interface&gt;&gt;&#xa;IStaticAnalyzer" style="shape=rect;html=1;verticalAlign=top;align=center;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="180" width="160" height="40" as="geometry"/>
+                </mxCell>
+                
+                <!-- Evidence Interface -->
+                <mxCell id="EvidenceInterface" value="&lt;&lt;interface&gt;&gt;&#xa;IEvidenceStore" style="shape=rect;html=1;verticalAlign=top;align=center;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="300" width="160" height="40" as="geometry"/>
+                </mxCell>
+
+                <!-- Runtime Interface -->
+                <mxCell id="RuntimeInterface" value="&lt;&lt;interface&gt;&gt;&#xa;IRuntimeProber" style="shape=rect;html=1;verticalAlign=top;align=center;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="180" width="160" height="40" as="geometry"/>
+                </mxCell>
+
+                <!-- Rules Interface -->
+                <mxCell id="RulesInterface" value="&lt;&lt;interface&gt;&gt;&#xa;IComplianceEvaluator" style="shape=rect;html=1;verticalAlign=top;align=center;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="180" width="160" height="40" as="geometry"/>
+                </mxCell>
+
+                <!-- LLM Interface -->
+                <mxCell id="LLMInterface" value="&lt;&lt;interface&gt;&gt;&#xa;ILLMProvider" style="shape=rect;html=1;verticalAlign=top;align=center;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="960" y="180" width="160" height="40" as="geometry"/>
+                </mxCell>
+
+                <!-- Report Interface -->
+                <mxCell id="ReportInterface" value="&lt;&lt;interface&gt;&gt;&#xa;IReportGenerator" style="shape=rect;html=1;verticalAlign=top;align=center;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="300" width="160" height="40" as="geometry"/>
+                </mxCell>
+
+                <!-- External Systems -->
+                <mxCell id="ExternalSemgrep" value="&lt;&lt;external system&gt;&gt;&#xa;Semgrep" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="380" width="120" height="50" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="ExternalPlaywright" value="&lt;&lt;external system&gt;&gt;&#xa;Playwright" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="380" width="120" height="50" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="ExternalGemini" value="&lt;&lt;external system&gt;&gt;&#xa;Google Gemini API" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="1180" y="200" width="120" height="50" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="ExternalSQLite" value="&lt;&lt;external system&gt;&gt;&#xa;SQLite Database" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="380" width="120" height="50" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="ExternalFileSystem" value="&lt;&lt;external system&gt;&gt;&#xa;File System" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="380" width="120" height="50" as="geometry"/>
+                </mxCell>
+
+                <!-- Component Sub-modules -->
+                
+                <!-- CLI Sub-modules -->
+                <mxCell id="CLISubmodules" value="• main.py (Typer app)&#xa;• commands/ (individual commands)&#xa;• formatters/ (output formatting)" style="shape=rect;html=1;align=left;spacingLeft=10;fillColor=#e6f2ff;strokeColor=#6c8ebf;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="480" width="180" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- Scanner Sub-modules -->
+                <mxCell id="ScannerSubmodules" value="• semgrep_scanner.py&#xa;• treesitter_scanner.py&#xa;• signal_extractors/&#xa;• rules/ (semgrep YAML)" style="shape=rect;html=1;align=left;spacingLeft=10;fillColor=#f0e6ff;strokeColor=#9673a6;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="480" width="180" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- Runtime Sub-modules -->
+                <mxCell id="RuntimeSubmodules" value="• playwright_prober.py&#xa;• personas/ (test scenarios)&#xa;• probe_strategies/&#xa;• mock_implementations/" style="shape=rect;html=1;align=left;spacingLeft=10;fillColor=#f0e6ff;strokeColor=#9673a6;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="480" width="180" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- Rules Sub-modules -->
+                <mxCell id="RulesSubmodules" value="• json_logic_engine.py&#xa;• rule_definitions/&#xa;• confidence_scorer.py&#xa;• rule_validators/" style="shape=rect;html=1;align=left;spacingLeft=10;fillColor=#e6ffe6;strokeColor=#82b366;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="480" width="180" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- LLM Sub-modules -->
+                <mxCell id="LLMSubmodules" value="• gemini_client.py&#xa;• prompt_engineering/&#xa;• policy_snippets/&#xa;• response_validators/" style="shape=rect;html=1;align=left;spacingLeft=10;fillColor=#fff0e6;strokeColor=#d79b00;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="960" y="480" width="180" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- Evidence Sub-modules -->
+                <mxCell id="EvidenceSubmodules" value="• models.py (Pydantic)&#xa;• pipeline.py&#xa;• store.py (SQLite)&#xa;• exporters/" style="shape=rect;html=1;align=left;spacingLeft=10;fillColor=#fff9e6;strokeColor=#d6b656;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="560" width="180" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- Reports Sub-modules -->
+                <mxCell id="ReportsSubmodules" value="• generators/ (CSV, HTML, PDF)&#xa;• templates/ (Jinja2)&#xa;• formatters/" style="shape=rect;html=1;align=left;spacingLeft=10;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="560" width="180" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- Component Dependencies (arrows) -->
+                
+                <!-- CLI orchestrates all other components -->
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="CLIComponent" target="ScannerComponent">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="240" y="110" as="sourcePoint"/>
+                        <mxPoint x="300" y="110" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="CLIToScannerLabel" value="uses" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="90" width="40" height="20" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="CLIComponent" target="RuntimeComponent">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="240" y="120" as="sourcePoint"/>
+                        <mxPoint x="520" y="110" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="CLIComponent" target="RulesComponent">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="240" y="130" as="sourcePoint"/>
+                        <mxPoint x="740" y="110" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="CLIComponent" target="LLMComponent">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="240" y="140" as="sourcePoint"/>
+                        <mxPoint x="960" y="110" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- All components use Evidence component -->
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ScannerComponent" target="EvidenceComponent">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="380" y="140" as="sourcePoint"/>
+                        <mxPoint x="600" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="RuntimeComponent" target="EvidenceComponent">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="600" y="140" as="sourcePoint"/>
+                        <mxPoint x="600" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;entryX=1;entryY=0.5;" edge="1" parent="1" source="RulesComponent" target="EvidenceComponent">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="740" y="110" as="sourcePoint"/>
+                        <mxPoint x="680" y="230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;entryX=1;entryY=0.25;" edge="1" parent="1" source="LLMComponent" target="EvidenceComponent">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="960" y="110" as="sourcePoint"/>
+                        <mxPoint x="680" y="215" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- Reports component uses Evidence and LLM -->
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="EvidenceComponent" target="ReportsComponent">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="680" y="230" as="sourcePoint"/>
+                        <mxPoint x="740" y="230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="LLMComponent" target="ReportsComponent">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="1040" y="140" as="sourcePoint"/>
+                        <mxPoint x="820" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- External system dependencies -->
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="ScannerSubmodules" target="ExternalSemgrep">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="300" y="520" as="sourcePoint"/>
+                        <mxPoint x="200" y="405" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="RuntimeSubmodules" target="ExternalPlaywright">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="520" y="520" as="sourcePoint"/>
+                        <mxPoint x="340" y="405" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="LLMSubmodules" target="ExternalGemini">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="1140" y="520" as="sourcePoint"/>
+                        <mxPoint x="1180" y="225" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="EvidenceSubmodules" target="ExternalSQLite">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="580" y="560" as="sourcePoint"/>
+                        <mxPoint x="580" y="430" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=open;endFill=1;endSize=12;html=1;dashed=1;" edge="1" parent="1" source="ReportsSubmodules" target="ExternalFileSystem">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="800" y="560" as="sourcePoint"/>
+                        <mxPoint x="800" y="430" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- Interface implementation relationships -->
+                <mxCell id="" value="" style="endArrow=block;endSize=16;endFill=0;html=1;dashed=1;" edge="1" parent="1" source="ScannerComponent" target="ScannerInterface">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="380" y="140" as="sourcePoint"/>
+                        <mxPoint x="380" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=block;endSize=16;endFill=0;html=1;dashed=1;" edge="1" parent="1" source="RuntimeComponent" target="RuntimeInterface">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="600" y="140" as="sourcePoint"/>
+                        <mxPoint x="600" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=block;endSize=16;endFill=0;html=1;dashed=1;" edge="1" parent="1" source="EvidenceComponent" target="EvidenceInterface">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="600" y="260" as="sourcePoint"/>
+                        <mxPoint x="600" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=block;endSize=16;endFill=0;html=1;dashed=1;" edge="1" parent="1" source="RulesComponent" target="RulesInterface">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="820" y="140" as="sourcePoint"/>
+                        <mxPoint x="820" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=block;endSize=16;endFill=0;html=1;dashed=1;" edge="1" parent="1" source="LLMComponent" target="LLMInterface">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="1040" y="140" as="sourcePoint"/>
+                        <mxPoint x="1040" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="" style="endArrow=block;endSize=16;endFill=0;html=1;dashed=1;" edge="1" parent="1" source="ReportsComponent" target="ReportInterface">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="820" y="260" as="sourcePoint"/>
+                        <mxPoint x="820" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- Component Responsibility Annotations -->
+                <mxCell id="ScannerResponsibility" value="Responsibilities:&#xa;• Semgrep pattern matching&#xa;• Tree-sitter AST analysis&#xa;• Signal extraction & normalization&#xa;• Multi-language support" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpaque=0;fillColor=#e6f2ff;strokeColor=#6c8ebf;size=14;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="580" width="180" height="80" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="RuntimeResponsibility" value="Responsibilities:&#xa;• Playwright browser automation&#xa;• Geographic persona testing&#xa;• UI state & behavior analysis&#xa;• Network request tracing" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpaque=0;fillColor=#f0e6ff;strokeColor=#9673a6;size=14;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="580" width="180" height="80" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="EvidenceResponsibility" value="Responsibilities:&#xa;• Evidence normalization&#xa;• SQLite persistence&#xa;• Quality validation&#xa;• Cross-component data sharing" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpaque=0;fillColor=#fff9e6;strokeColor=#d6b656;size=14;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="640" width="180" height="80" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="RulesResponsibility" value="Responsibilities:&#xa;• JSON Logic rule evaluation&#xa;• Confidence scoring&#xa;• Regulatory compliance mapping&#xa;• Verdict generation" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpaque=0;fillColor=#e6ffe6;strokeColor=#82b366;size=14;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="640" width="180" height="80" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="LLMResponsibility" value="Responsibilities:&#xa;• Gemini API integration&#xa;• Prompt engineering&#xa;• Compliance explanation generation&#xa;• Recommendation synthesis" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpaque=0;fillColor=#fff0e6;strokeColor=#d79b00;size=14;" vertex="1" parent="1">
+                    <mxGeometry x="960" y="640" width="180" height="80" as="geometry"/>
+                </mxCell>
+
+                <!-- Data Flow Annotations -->
+                <mxCell id="DataFlow1" value="Static Signals" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2;rotation=-35;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="150" width="80" height="20" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="DataFlow2" value="Runtime Signals" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2;rotation=0;" vertex="1" parent="1">
+                    <mxGeometry x="590" y="150" width="80" height="20" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="DataFlow3" value="Evidence Pack" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2;rotation=35;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="150" width="80" height="20" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="DataFlow4" value="Rules Result" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2;rotation=-35;" vertex="1" parent="1">
+                    <mxGeometry x="880" y="150" width="80" height="20" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="DataFlow5" value="Final Record" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2;rotation=0;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="170" width="80" height="20" as="geometry"/>
+                </mxCell>
+
+                <!-- Legend -->
+                <mxCell id="Legend" value="Legend" style="shape=rect;html=1;verticalAlign=top;align=left;spacingTop=-6;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;" vertex="1" parent="1">
+                    <mxGeometry x="1160" y="300" width="160" height="180" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="LegendComponent" value="Component" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="1170" y="320" width="80" height="25" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="LegendInterface" value="Interface" style="shape=rect;html=1;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="1170" y="350" width="80" height="25" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="LegendExternal" value="External System" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="1170" y="380" width="80" height="25" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="LegendDependency" value="——————→ uses" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1170" y="410" width="120" height="20" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="LegendImplements" value="- - - - - - - → implements" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1170" y="430" width="140" height="20" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="LegendExtDependency" value="- - - - - - - → depends on" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1170" y="450" width="140" height="20" as="geometry"/>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

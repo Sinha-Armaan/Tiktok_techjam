@@ -1,0 +1,401 @@
+<mxfile host="65bd71144e">
+    <diagram id="CDS-Sequence-Diagram" name="Pipeline Execution Sequence">
+        <mxGraphModel dx="2066" dy="1129" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                
+                <!-- Actors/Participants -->
+                <mxCell id="User" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="40" width="30" height="60" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="CLI" value="CLI&#xa;Interface" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="60" width="80" height="40" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="Scanner" value="Static&#xa;Scanner" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="60" width="80" height="40" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="Evidence" value="Evidence&#xa;Store" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="410" y="60" width="80" height="40" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="Runtime" value="Runtime&#xa;Prober" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="60" width="80" height="40" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="Rules" value="Rules&#xa;Engine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="670" y="60" width="80" height="40" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="LLM" value="LLM&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+                    <mxGeometry x="800" y="60" width="80" height="40" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="Reports" value="Report&#xa;Generator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="930" y="60" width="80" height="40" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="FileSystem" value="File&#xa;System" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="1060" y="60" width="80" height="40" as="geometry"/>
+                </mxCell>
+
+                <!-- Lifelines -->
+                <mxCell id="UserLifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="120" width="10" height="650" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="CLILifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="185" y="120" width="10" height="650" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="ScannerLifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="315" y="120" width="10" height="650" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="EvidenceLifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="445" y="120" width="10" height="650" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="RuntimeLifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="575" y="120" width="10" height="650" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="RulesLifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="705" y="120" width="10" height="650" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="LLMLifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+                    <mxGeometry x="835" y="120" width="10" height="650" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="ReportsLifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#f0f0f0;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="965" y="120" width="10" height="650" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="FileSystemLifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#f0f0f0;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="1095" y="120" width="10" height="650" as="geometry"/>
+                </mxCell>
+
+                <!-- Activation boxes for long-running operations -->
+                <mxCell id="CLIActivation" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="150" width="10" height="620" as="geometry"/>
+                </mxCell>
+
+                <!-- Messages/Interactions -->
+                <!-- 1. User initiates pipeline -->
+                <mxCell id="" value="1: cds pipeline --repo . --features user_registration" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry x="0.0519" relative="1" as="geometry">
+                        <mxPoint x="70" y="150" as="sourcePoint"/>
+                        <mxPoint x="190" y="150" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 2. CLI validates input and starts pipeline -->
+                <mxCell id="" value="2: validate_pipeline_params(repo, features)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0;entryY=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="190" y="180" as="sourcePoint"/>
+                        <mxPoint x="190" y="190" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="220" y="180"/>
+                            <mxPoint x="220" y="190"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 3. Start static analysis phase -->
+                <mxCell id="" value="3: scan_repository(repo_path, 'user_registration')" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="220" as="sourcePoint"/>
+                        <mxPoint x="315" y="220" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 4. Scanner runs semgrep and tree-sitter -->
+                <mxCell id="" value="4: run_semgrep_analysis(repo_path)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0;entryY=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="315" y="240" as="sourcePoint"/>
+                        <mxPoint x="315" y="250" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="350" y="240"/>
+                            <mxPoint x="350" y="250"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="5: extract_ast_patterns(files)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0;entryY=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="315" y="260" as="sourcePoint"/>
+                        <mxPoint x="315" y="270" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="350" y="260"/>
+                            <mxPoint x="350" y="270"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 6. Scanner stores evidence -->
+                <mxCell id="" value="6: store_static_signals(signals)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="325" y="300" as="sourcePoint"/>
+                        <mxPoint x="445" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 7. Return static signals -->
+                <mxCell id="" value="7: StaticSignals" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="315" y="330" as="sourcePoint"/>
+                        <mxPoint x="200" y="330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 8. Start runtime probing phase -->
+                <mxCell id="" value="8: probe_feature(url, 'user_registration', personas)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="360" as="sourcePoint"/>
+                        <mxPoint x="575" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 9. Runtime prober tests multiple personas -->
+                <mxCell id="" value="9: launch_browser_session(persona_us_utah_16)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0;entryY=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="575" y="380" as="sourcePoint"/>
+                        <mxPoint x="575" y="390" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="620" y="380"/>
+                            <mxPoint x="620" y="390"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="10: test_feature_behavior(registration_flow)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0;entryY=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="575" y="400" as="sourcePoint"/>
+                        <mxPoint x="575" y="410" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="620" y="400"/>
+                            <mxPoint x="620" y="410"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="11: collect_runtime_signals(blocked_actions, ui_states)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0;entryY=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="575" y="420" as="sourcePoint"/>
+                        <mxPoint x="575" y="430" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="620" y="420"/>
+                            <mxPoint x="620" y="430"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 12. Store runtime signals -->
+                <mxCell id="" value="12: store_runtime_signals(signals)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="575" y="460" as="sourcePoint"/>
+                        <mxPoint x="455" y="460" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 13. Return runtime signals -->
+                <mxCell id="" value="13: RuntimeSignals" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="575" y="490" as="sourcePoint"/>
+                        <mxPoint x="200" y="490" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 14. Get complete evidence pack -->
+                <mxCell id="" value="14: get_evidence_pack('user_registration')" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="520" as="sourcePoint"/>
+                        <mxPoint x="445" y="520" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 15. Evidence store combines signals -->
+                <mxCell id="" value="15: combine_signals(static, runtime)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0;entryY=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="445" y="540" as="sourcePoint"/>
+                        <mxPoint x="445" y="550" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="480" y="540"/>
+                            <mxPoint x="480" y="550"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 16. Return evidence pack -->
+                <mxCell id="" value="16: EvidencePack" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="445" y="570" as="sourcePoint"/>
+                        <mxPoint x="200" y="570" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 17. Evaluate compliance rules -->
+                <mxCell id="" value="17: evaluate_feature(evidence_pack)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="600" as="sourcePoint"/>
+                        <mxPoint x="705" y="600" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 18. Rules engine applies JSON Logic rules -->
+                <mxCell id="" value="18: apply_json_logic_rules(evidence_data)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0;entryY=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="705" y="620" as="sourcePoint"/>
+                        <mxPoint x="705" y="630" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="750" y="620"/>
+                            <mxPoint x="750" y="630"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="19: calculate_confidence_scores(rule_results)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0;entryY=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="705" y="640" as="sourcePoint"/>
+                        <mxPoint x="705" y="650" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="750" y="640"/>
+                            <mxPoint x="750" y="650"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 20. Return rules result -->
+                <mxCell id="" value="20: RulesResult" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="705" y="670" as="sourcePoint"/>
+                        <mxPoint x="200" y="670" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 21. Generate LLM explanation -->
+                <mxCell id="" value="21: explain_compliance_result(rules_result, evidence)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="700" as="sourcePoint"/>
+                        <mxPoint x="835" y="700" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 22. LLM generates analysis -->
+                <mxCell id="" value="22: build_analysis_context(evidence, rules)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0;entryY=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="835" y="720" as="sourcePoint"/>
+                        <mxPoint x="835" y="730" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="880" y="720"/>
+                            <mxPoint x="880" y="730"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="" value="23: call_gemini_api(prompt, schema)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;entryX=0;entryY=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="835" y="740" as="sourcePoint"/>
+                        <mxPoint x="835" y="750" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="880" y="740"/>
+                            <mxPoint x="880" y="750"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 24. Return LLM explanation -->
+                <mxCell id="" value="24: LLMExplanation" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="835" y="770" as="sourcePoint"/>
+                        <mxPoint x="200" y="770" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 25. Generate reports -->
+                <mxCell id="" value="25: generate_reports(final_record, formats=['csv', 'html'])" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="800" as="sourcePoint"/>
+                        <mxPoint x="965" y="800" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 26. Export CSV -->
+                <mxCell id="" value="26: export_csv(final_record)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="975" y="820" as="sourcePoint"/>
+                        <mxPoint x="1095" y="820" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 27. Export HTML -->
+                <mxCell id="" value="27: export_html(final_record)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="975" y="840" as="sourcePoint"/>
+                        <mxPoint x="1095" y="840" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 28. Return report paths -->
+                <mxCell id="" value="28: report_paths" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="965" y="860" as="sourcePoint"/>
+                        <mxPoint x="200" y="860" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- 29. Display results to user -->
+                <mxCell id="" value="29: display_pipeline_results(report_paths)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="190" y="880" as="sourcePoint"/>
+                        <mxPoint x="70" y="880" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+                <!-- Notes and annotations -->
+                <mxCell id="" value="Phase 1: Static Analysis&#xa;- Semgrep pattern matching&#xa;- AST analysis with Tree-sitter&#xa;- Extract geo-branching, age checks, data residency" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpaque=0;fillColor=#ffffcc;strokeColor=#ffcc00;size=14;" vertex="1" parent="1">
+                    <mxGeometry x="1150" y="200" width="200" height="80" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="" value="Phase 2: Runtime Probing&#xa;- Test 5 geographic personas&#xa;- Playwright browser automation&#xa;- Collect UI states, blocked actions" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpaque=0;fillColor=#ffffcc;strokeColor=#ffcc00;size=14;" vertex="1" parent="1">
+                    <mxGeometry x="1150" y="320" width="200" height="80" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="" value="Phase 3: Compliance Evaluation&#xa;- Apply 7 JSON Logic rules&#xa;- Calculate confidence scores&#xa;- Generate compliance verdicts" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpaque=0;fillColor=#ffffcc;strokeColor=#ffcc00;size=14;" vertex="1" parent="1">
+                    <mxGeometry x="1150" y="580" width="200" height="80" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="" value="Phase 4: LLM Analysis&#xa;- Generate compliance explanations&#xa;- Create actionable recommendations&#xa;- Provide risk assessments" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpaque=0;fillColor=#ffffcc;strokeColor=#ffcc00;size=14;" vertex="1" parent="1">
+                    <mxGeometry x="1150" y="700" width="200" height="80" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="" value="Phase 5: Report Generation&#xa;- Export CSV for analysis&#xa;- Generate HTML dashboard&#xa;- Save audit trail" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpaque=0;fillColor=#ffffcc;strokeColor=#ffcc00;size=14;" vertex="1" parent="1">
+                    <mxGeometry x="1150" y="820" width="200" height="80" as="geometry"/>
+                </mxCell>
+
+                <!-- Timeline annotations -->
+                <mxCell id="" value="~5-10s" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="200" width="40" height="20" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="" value="~30s" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="360" width="30" height="20" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="" value="~2-3s" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2;" vertex="1" parent="1">
+                    <mxGeometry x="750" y="600" width="40" height="20" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="" value="~5-10s" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2;" vertex="1" parent="1">
+                    <mxGeometry x="880" y="700" width="40" height="20" as="geometry"/>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

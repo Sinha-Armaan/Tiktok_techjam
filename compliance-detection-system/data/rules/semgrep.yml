@@ -1,0 +1,136 @@
+rules:
+  - id: geo-country-lists
+    pattern-either:
+      - pattern: |
+          $COUNTRIES = [$...ITEMS]
+      - pattern: |
+          countries = [$...ITEMS]  
+      - pattern: |
+          SUPPORTED_COUNTRIES = [$...ITEMS]
+      - pattern: |
+          BLOCKED_COUNTRIES = [$...ITEMS]
+    message: "Detected hardcoded country list for geo-branching logic"
+    languages: [python, javascript, typescript]
+    severity: INFO
+    metadata:
+      category: compliance
+      signal_type: geo_branching
+      
+  - id: age-verification-imports
+    pattern-either:
+      - pattern: |
+          from age_gate import $FUNC
+      - pattern: |
+          import age_gate
+      - pattern: |
+          from $MOD import verify_age
+      - pattern: |
+          import { verifyAge } from '$MOD'
+    message: "Age verification library import detected"
+    languages: [python, javascript, typescript]
+    severity: INFO
+    metadata:
+      category: compliance
+      signal_type: age_verification
+      
+  - id: data-residency-regions
+    pattern-either:
+      - pattern: |
+          region in [$...REGIONS]
+      - pattern: |
+          data_region = $REGION
+      - pattern: |
+          storage_region = $REGION
+      - pattern: |
+          if region == $REGION
+    message: "Data residency region configuration detected"
+    languages: [python, javascript, typescript]  
+    severity: INFO
+    metadata:
+      category: compliance
+      signal_type: data_residency
+      
+  - id: ncmec-reporting-client
+    pattern-either:
+      - pattern: |
+          ncmec_client.$METHOD(...)
+      - pattern: |
+          from ncmec import $CLIENT
+      - pattern: |
+          import { NCMECClient } from '$MOD'
+      - pattern: |
+          report_to_ncmec(...)
+    message: "NCMEC reporting client usage detected"
+    languages: [python, javascript, typescript]
+    severity: INFO
+    metadata:
+      category: compliance
+      signal_type: reporting_client
+      
+  - id: parental-controls-flags
+    pattern-either:
+      - pattern: |
+          parental_consent_required
+      - pattern: |
+          PARENTAL_CONTROLS_ENABLED
+      - pattern: |
+          require_parental_consent
+      - pattern: |
+          parentalControlsEnabled
+    message: "Parental control configuration detected"
+    languages: [python, javascript, typescript]
+    severity: INFO
+    metadata:
+      category: compliance
+      signal_type: parental_controls
+      
+  - id: compliance-feature-flags
+    pattern-either:
+      - pattern: |
+          FEATURE_FLAG_COMPLIANCE_$FLAG
+      - pattern: |
+          feature_flag.compliance.$FLAG
+      - pattern: |
+          getFeatureFlag('compliance_$FLAG')
+      - pattern: |
+          isEnabled('$FLAG_compliance')
+    message: "Compliance-related feature flag detected"
+    languages: [python, javascript, typescript]
+    severity: INFO
+    metadata:
+      category: compliance
+      signal_type: feature_flag
+
+  - id: utah-minor-patterns
+    pattern-either:
+      - pattern: |
+          if age < 18 and state == 'UT'
+      - pattern: |
+          utah_minor_restrictions
+      - pattern: |
+          UT_CURFEW_HOURS
+      - pattern: |
+          utahMinorCheck($AGE)
+    message: "Utah minor-specific compliance pattern detected"
+    languages: [python, javascript, typescript]
+    severity: WARNING
+    metadata:
+      category: compliance
+      signal_type: utah_minors
+      
+  - id: gdpr-data-processing
+    pattern-either:
+      - pattern: |
+          gdpr_consent_required
+      - pattern: |
+          lawful_basis = $BASIS
+      - pattern: |
+          data_subject_rights
+      - pattern: |
+          right_to_erasure
+    message: "GDPR data processing pattern detected"
+    languages: [python, javascript, typescript]
+    severity: INFO
+    metadata:
+      category: compliance
+      signal_type: gdpr
