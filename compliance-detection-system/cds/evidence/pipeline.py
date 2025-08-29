@@ -244,6 +244,23 @@ class CompliancePipeline:
     def __init__(self):
         self.csv_exporter = CSVExporter()
         self.html_reporter = HTMLReporter()
+        self._scan_cache = {}  # Cache for scan results by repo_path
+    
+    def _get_scan_result(self, repo_path: Path, feature_id: str):
+        """Get scan result from cache or perform new scan"""
+        repo_str = str(repo_path.resolve())
+        
+        if repo_str not in self._scan_cache:
+            if repo_path.exists():
+                logger.info(f"Running scan for repository: {repo_path}")
+                self._scan_cache[repo_str] = scan_repository(repo_path, feature_id)
+            else:
+                logger.warning(f"Repository not found: {repo_path}")
+                self._scan_cache[repo_str] = None
+        else:
+            logger.debug(f"Using cached scan result for: {repo_path}")
+        
+        return self._scan_cache[repo_str]
     
     def run_pipeline(self, dataset_path: Path, output_csv: Path, 
                     report_html: Path) -> Dict[str, Any]:
@@ -271,11 +288,8 @@ class CompliancePipeline:
             try:
                 logger.info(f"Processing feature: {feature_id}")
                 
-                # Step 1: Static scan (if repo exists)
-                if repo_path.exists():
-                    scan_result = scan_repository(repo_path, feature_id)
-                else:
-                    logger.warning(f"Repository not found for {feature_id}: {repo_path}")
+                # Step 1: Static scan (with caching to avoid duplicate scans)
+                scan_result = self._get_scan_result(repo_path, feature_id)
                 
                 # Step 2: Rules evaluation
                 rules_result = evaluate_feature(feature_id)

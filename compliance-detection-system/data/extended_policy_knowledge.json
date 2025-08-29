@@ -1,0 +1,226 @@
+{
+  "version": "1.0",
+  "description": "Extended policy and regulation knowledge base for comprehensive compliance testing",
+  "regulations": [
+    {
+      "regulation_id": "utah_social_media_act",
+      "title": "Utah Social Media Regulation Act - Minor Protections",
+      "content": "Social media companies must implement curfew restrictions for users under 18 in Utah, blocking access between 10:30 PM and 6:30 AM unless parental consent is provided. Companies must also implement age verification systems and parental approval for accounts.",
+      "source_url": "https://le.utah.gov/~2023/bills/static/SB0152.html",
+      "effective_date": "2024-03-01",
+      "jurisdiction": "Utah, USA",
+      "key_requirements": [
+        "Age verification for all users",
+        "Parental consent for minors",
+        "Curfew enforcement (10:30 PM - 6:30 AM)",
+        "Parental control dashboard",
+        "Usage time limits for minors"
+      ],
+      "penalties": "Up to $2,500 per violation",
+      "compliance_mechanisms": [
+        "Technical age verification",
+        "Parental consent workflows",
+        "Time-based access controls",
+        "Audit trails and reporting"
+      ]
+    },
+    {
+      "regulation_id": "ncmec_reporting",
+      "title": "NCMEC Mandatory Reporting Requirements",
+      "content": "Electronic service providers must report known instances of child sexual abuse material (CSAM) to the National Center for Missing & Exploited Children within a reasonable time. Providers must implement detection systems and maintain evidence.",
+      "source_url": "https://www.missingkids.org/gethelpnow/cybertipline",
+      "effective_date": "1998-10-30",
+      "jurisdiction": "United States",
+      "key_requirements": [
+        "CSAM detection and reporting",
+        "Evidence preservation",
+        "User cooperation with investigations",
+        "Staff training on identification",
+        "Incident response procedures"
+      ],
+      "penalties": "Criminal liability, $300,000+ fines",
+      "compliance_mechanisms": [
+        "Automated content scanning",
+        "Human review processes",
+        "Reporting infrastructure",
+        "Investigation cooperation protocols"
+      ]
+    },
+    {
+      "regulation_id": "eu_dsa",
+      "title": "EU Digital Services Act - Platform Obligations",
+      "content": "Very large online platforms must provide transparency reports, implement user flagging mechanisms, establish appeal processes for content moderation decisions, and conduct risk assessments for systemic risks.",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/digital-services-act-package",
+      "effective_date": "2024-02-17",
+      "jurisdiction": "European Union",
+      "key_requirements": [
+        "Transparency reporting",
+        "User flagging systems",
+        "Content moderation appeals",
+        "Risk assessment procedures",
+        "External auditing",
+        "Crisis response mechanisms"
+      ],
+      "penalties": "Up to 6% of global annual turnover",
+      "compliance_mechanisms": [
+        "Quarterly transparency reports",
+        "User-friendly reporting tools",
+        "Independent appeals process",
+        "Annual risk assessments",
+        "Third-party audits"
+      ]
+    },
+    {
+      "regulation_id": "gdpr",
+      "title": "General Data Protection Regulation",
+      "content": "Processing personal data requires a lawful basis under Article 6. Data subjects have rights to access, portability, erasure, objection to processing, and rectification. Special protections apply to children's data.",
+      "source_url": "https://gdpr.eu/",
+      "effective_date": "2018-05-25",
+      "jurisdiction": "European Union",
+      "key_requirements": [
+        "Lawful basis for processing",
+        "Data subject rights implementation",
+        "Privacy by design",
+        "Data protection impact assessments",
+        "Breach notification (72 hours)",
+        "Data protection officer appointment"
+      ],
+      "penalties": "Up to 4% of global annual turnover or €20M",
+      "compliance_mechanisms": [
+        "Privacy policy transparency",
+        "Consent management systems",
+        "Data subject request portals",
+        "Breach detection and notification",
+        "Privacy impact assessments"
+      ]
+    },
+    {
+      "regulation_id": "coppa",
+      "title": "Children's Online Privacy Protection Act",
+      "content": "Websites directed to children under 13 must obtain verifiable parental consent before collecting personal information from children. Enhanced protections apply to known child users.",
+      "source_url": "https://www.ftc.gov/enforcement/rules/rulemaking-regulatory-reform-proceedings/childrens-online-privacy-protection-rule",
+      "effective_date": "2000-04-21",
+      "jurisdiction": "United States",
+      "key_requirements": [
+        "Verifiable parental consent",
+        "Privacy notice for parents",
+        "Limited data collection from children",
+        "Parental access to child's information",
+        "Secure data handling for minors"
+      ],
+      "penalties": "$43,792 per violation (2024)",
+      "compliance_mechanisms": [
+        "Age screening mechanisms",
+        "Parental consent verification",
+        "Data minimization for children",
+        "Parental access portals",
+        "Secure deletion processes"
+      ]
+    },
+    {
+      "regulation_id": "ccpa",
+      "title": "California Consumer Privacy Act",
+      "content": "California residents have rights to know what personal information is collected, delete personal information, opt-out of sale, and non-discrimination for exercising privacy rights.",
+      "source_url": "https://oag.ca.gov/privacy/ccpa",
+      "effective_date": "2020-01-01",
+      "jurisdiction": "California, USA",
+      "key_requirements": [
+        "Consumer right to know",
+        "Right to delete personal information",
+        "Right to opt-out of sale",
+        "Non-discrimination protections",
+        "Privacy policy disclosures"
+      ],
+      "penalties": "$2,500-$7,500 per violation",
+      "compliance_mechanisms": [
+        "Privacy policy updates",
+        "Consumer request portals",
+        "Opt-out mechanisms",
+        "Data inventory maintenance",
+        "Third-party disclosure tracking"
+      ]
+    },
+    {
+      "regulation_id": "australia_online_safety_act",
+      "title": "Australia Online Safety Act",
+      "content": "Social media services must implement systems to detect and remove class 1 material, provide user reporting mechanisms, and maintain content standards appropriate for Australian users.",
+      "source_url": "https://www.esafety.gov.au/about-us/what-we-do/online-safety-act",
+      "effective_date": "2021-01-23",
+      "jurisdiction": "Australia",
+      "key_requirements": [
+        "Class 1 material detection and removal",
+        "User reporting systems",
+        "Content standards compliance",
+        "Age verification for adult content",
+        "Cooperation with eSafety Commissioner"
+      ],
+      "penalties": "Up to AU$555,000 for corporations",
+      "compliance_mechanisms": [
+        "Automated content detection",
+        "Human content review",
+        "User reporting workflows",
+        "Regulatory cooperation protocols"
+      ]
+    },
+    {
+      "regulation_id": "uk_age_appropriate_design",
+      "title": "UK Age Appropriate Design Code",
+      "content": "Online services likely to be accessed by children must implement privacy by design, data minimization, and default settings that prioritize children's privacy and wellbeing.",
+      "source_url": "https://ico.org.uk/for-organisations/guide-to-data-protection/ico-codes-of-practice/age-appropriate-design-a-code-of-practice-for-online-services/",
+      "effective_date": "2021-09-02",
+      "jurisdiction": "United Kingdom",
+      "key_requirements": [
+        "Privacy by design for children",
+        "Data minimization standards",
+        "High privacy default settings",
+        "Transparent privacy information",
+        "Age-appropriate application"
+      ],
+      "penalties": "Up to 4% of global annual turnover",
+      "compliance_mechanisms": [
+        "Age-appropriate design assessments",
+        "Child-friendly privacy notices",
+        "Default privacy settings",
+        "Regular compliance reviews"
+      ]
+    }
+  ],
+  "compliance_frameworks": [
+    {
+      "framework_id": "iso27001",
+      "title": "ISO 27001 Information Security Management",
+      "description": "International standard for information security management systems",
+      "key_controls": [
+        "Risk assessment and treatment",
+        "Security incident management",
+        "Access control management",
+        "Cryptographic controls",
+        "Secure development lifecycle"
+      ]
+    },
+    {
+      "framework_id": "nist_privacy_framework",
+      "title": "NIST Privacy Framework",
+      "description": "Framework for managing privacy risks in systems and organizations",
+      "key_functions": [
+        "Identify privacy risks",
+        "Govern privacy programs",
+        "Control data processing",
+        "Communicate privacy practices",
+        "Protect individual privacy"
+      ]
+    },
+    {
+      "framework_id": "cis_controls",
+      "title": "CIS Critical Security Controls",
+      "description": "Prioritized set of actions for cyber defense",
+      "key_controls": [
+        "Inventory of assets",
+        "Software asset management",
+        "Data protection",
+        "Secure configuration",
+        "Account management"
+      ]
+    }
+  ]
+}
