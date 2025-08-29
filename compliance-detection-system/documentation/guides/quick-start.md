@@ -85,45 +85,144 @@ cds --help
 # Compliance Detection System - Detect geo-specific compliance requirements
 ```
 
-### Step 4: Run Demo Pipeline
+### Step 4: Generate Evidence Files
+
+Before running the pipeline, generate evidence files from the comprehensive dataset artifacts:
 
 ```powershell
-# Execute the complete demo pipeline
-python demo_pipeline.py
+# Generate evidence files for all dataset variations
+python generate_evidence.py
 ```
 
 **Expected Output:**
 ```
-🔄 Starting CDS Demo Pipeline...
+🔍 Evidence Generator for Dataset Variations
+============================================================
+🔍 Creating evidence files for original_comprehensive_focused...
+📋 Loaded 3 features from original_comprehensive_focused
+✅ Created evidence: artifacts\evidence\user_registration.json
+✅ Created evidence: artifacts\evidence\content_recommendation.json
+✅ Created evidence: artifacts\evidence\crisis_intervention.json
 
-🔍 Scanning 3 sample features...
-✅ user_registration - 4 static signals extracted
-✅ content_moderation - 6 static signals extracted  
-✅ recommendation_engine - 3 static signals extracted
+🔍 Creating evidence files for enterprise_security_focused...
+📋 Loaded 4 features from enterprise_security_focused
+✅ Created evidence: artifacts\evidence\threat_detection.json
+✅ Created evidence: artifacts\evidence\zero_trust_architecture.json
+✅ Created evidence: artifacts\evidence\identity_management.json
+✅ Created evidence: artifacts\evidence\security_monitoring.json
 
-⚖️ Evaluating compliance rules...
-✅ 3 features evaluated against 7 compliance regulations
+🔍 Creating evidence files for global_expansion_focused...
+📋 Loaded 4 features from global_expansion_focused
+✅ Created evidence: artifacts\evidence\multi_region_compliance.json
+✅ Created evidence: artifacts\evidence\localization_engine.json
+✅ Created evidence: artifacts\evidence\cross_border_transfers.json
+✅ Created evidence: artifacts\evidence\regional_content_moderation.json
 
-🤖 Generating LLM explanations...
-✅ Compliance reasoning generated for all features
-
-📊 Exporting results...
-✅ CSV exported: artifacts/demo_results.csv
-✅ HTML report: artifacts/demo_report.html
-
-🎉 Demo completed successfully!
+🎉 Generated 11 total evidence files
 ```
 
-### Step 5: View Results
+### Step 5: Run Demo Pipeline with Dataset Variations
 
-Open the generated HTML report in your browser:
+Choose from three specialized dataset variations for testing different compliance scenarios:
 
+#### 🔧 Original Comprehensive Dataset (General Compliance)
 ```powershell
-# Windows
-start artifacts\demo_report.html
+# Test general compliance detection (COPPA, GDPR, Utah Act)
+python demo_pipeline.py original_comprehensive_focused
+```
+**Features tested:** User registration, content recommendation, crisis intervention  
+**Focus:** General compliance with intentional compliance gaps
 
-# Or view the raw data
-type artifacts\demo_results.csv | Select-Object -First 10
+#### 🔒 Enterprise Security Dataset (Security Vulnerabilities)
+```powershell
+# Test enterprise security vulnerability detection
+python demo_pipeline.py enterprise_security_focused
+```
+**Features tested:** Threat detection, zero trust architecture, IAM, security monitoring  
+**Focus:** Security vulnerabilities and enterprise compliance gaps
+
+#### 🌍 Global Expansion Dataset (International Compliance)
+```powershell
+# Test international compliance and data sovereignty
+python demo_pipeline.py global_expansion_focused
+```
+**Features tested:** Multi-region compliance, localization, cross-border transfers, content moderation  
+**Focus:** International regulations (GDPR, CCPA, PIPEDA, LGPD)
+
+**Expected Output:**
+```
+� CDS Compliance Detection System - Enhanced Pipeline Demo
+================================================================================
+🎯 Dataset Variation: Original Comprehensive (or Enterprise Security/Global Expansion)
+🎯 Features: Comprehensive artifacts including PRDs, TRDs, design docs, user stories, test cases, and risk assessments
+================================================================================
+
+📊 Comprehensive Dataset Loaded:
+   📋 Total Features: 3 (varies by dataset: 3-4 features)
+   📋 Features with PRDs: 3
+   📋 Features with TRDs: 3
+   📋 Safety Critical Features: 3
+   📋 Age Verification Required: 1
+   📋 Parental Consent Required: 1
+   ⚖️  Compliance Domains: coppa, gdpr, utah_social_media_act, algorithm_transparency...
+
+🔄 Running enhanced compliance detection pipeline...
+Failed to parse Gemini response as JSON...  # Some API rate limiting expected
+Google AI Studio analysis failed... # Some failures expected in demo
+
+================================================================================
+🎉 Enhanced Pipeline Demo Completed Successfully!
+
+📊 Results Summary:
+   • Total Features: 3-4 (varies by dataset)
+   • Successfully Processed: 3-4
+   • Errors: 0-2 (some expected due to API limits)
+
+📄 Generated Files:
+   • Enhanced CSV Results: artifacts\comprehensive_demo_results.csv
+   • Comprehensive HTML Report: artifacts\comprehensive_demo_report.html
+   • Evidence Files: ./artifacts/evidence/
+   • Extended Policy Evidence: ./artifacts/evidence/comprehensive_policy_evidence.json
+```
+
+### Step 6: Analyze Results
+
+#### View Comprehensive Results
+```powershell
+# Open HTML report (Windows)
+start artifacts\comprehensive_demo_report.html
+
+# Open HTML report (Mac/Linux)  
+open artifacts/comprehensive_demo_report.html
+
+# View CSV results
+type artifacts\comprehensive_demo_results.csv
+```
+
+#### Check Detected Vulnerabilities
+```powershell
+# View evidence file with detected issues
+type artifacts\evidence\user_registration.json
+```
+
+**Example Evidence Output:**
+```json
+{
+  "feature_id": "user_registration",
+  "static_analysis": {
+    "security_issues": {
+      "hardcoded_secrets": 3,        // ✅ Intentionally included
+      "sql_injection_risks": 2,      // ✅ Intentionally included  
+      "missing_validation": 0,
+      "insecure_connections": 0
+    }
+  },
+  "rules_engine": {
+    "requires_geo_logic": false,
+    "confidence_score": 0.0,         // Low confidence = needs review
+    "compliance_domains": ["coppa", "gdpr", "utah_social_media_act"]
+  }
+}
 ```
 
 ## 📊 Understanding the Demo Output
