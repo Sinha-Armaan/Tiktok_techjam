@@ -23,8 +23,6 @@ dependencies = [
     
     # Scanning dependencies
     "semgrep>=1.45.0",
-    "tree-sitter>=0.20.0",
-    "tree-sitter-languages>=1.8.0",
     
     # Runtime dependencies
     "playwright>=1.40.0",

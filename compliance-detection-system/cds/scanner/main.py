@@ -37,7 +37,7 @@ class SemgrepScanner:
                 str(repo_path)
             ]
             
-            result = subprocess.run(cmd, capture_output=True, text=True, check=False)
+            result = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', errors='ignore', check=False)
             
             # Check for actual failures (non-zero exit code with no stdout)
             if result.returncode != 0 and not result.stdout:
