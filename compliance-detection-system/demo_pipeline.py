@@ -102,25 +102,36 @@ def load_comprehensive_artifacts():
         print(f"✅ Loaded comprehensive artifacts repository (v{artifacts['version']})")
         print(f"   📋 Features with detailed artifacts: {len(artifacts['features'])}")
         
-        for feature in artifacts['features']:
-            feature_id = feature['feature_id']
-            artifacts_available = feature['artifacts']
+        for feature_id, feature_data in artifacts['features'].items():
+            feature_metadata = feature_data['feature_metadata']
             
-            print(f"\n   🔧 {feature['title']} ({feature_id}):")
-            if 'prd' in artifacts_available:
-                print(f"      📋 PRD: {artifacts_available['prd']['title']}")
-            if 'trd' in artifacts_available:
-                print(f"      🔧 TRD: {artifacts_available['trd']['title']}")
-            if 'design_docs' in artifacts_available:
-                print(f"      📐 Design Docs: {len(artifacts_available['design_docs'])} documents")
-            if 'user_stories' in artifacts_available:
-                print(f"      👤 User Stories: {len(artifacts_available['user_stories'])} stories")
-            if 'test_cases' in artifacts_available:
-                print(f"      🧪 Test Cases: {len(artifacts_available['test_cases'])} tests")
-            if 'risk_assessment' in artifacts_available:
-                compliance_risks = len(artifacts_available['risk_assessment'].get('compliance_risks', []))
-                technical_risks = len(artifacts_available['risk_assessment'].get('technical_risks', []))
-                print(f"      ⚠️  Risk Assessment: {compliance_risks} compliance + {technical_risks} technical risks")
+            print(f"\n   🔧 {feature_metadata['title']} ({feature_id}):")
+            
+            # Check primary artifacts
+            if 'primary_artifacts' in feature_data:
+                primary = feature_data['primary_artifacts']
+                if 'prd' in primary:
+                    print(f"      📋 PRD: {primary['prd']['path']}")
+                if 'trd' in primary:
+                    print(f"      🔧 TRD: {primary['trd']['path']}")
+            
+            # Check other artifact types
+            if 'design_documents' in feature_data:
+                design_docs = feature_data['design_documents']
+                print(f"      📐 Design Docs: {len(design_docs)} documents")
+            
+            if 'quality_assurance' in feature_data:
+                qa = feature_data['quality_assurance']
+                if 'test_cases' in qa:
+                    print(f"      🧪 Test Cases: {qa['test_cases']['path']}")
+            
+            if 'compliance_documentation' in feature_data:
+                compliance = feature_data['compliance_documentation']
+                if 'risk_assessment' in compliance:
+                    risks = compliance['risk_assessment']
+                    compliance_risks = len(risks.get('compliance_risks', []))
+                    technical_risks = len(risks.get('technical_risks', []))
+                    print(f"      ⚠️  Risk Assessment: {compliance_risks} compliance + {technical_risks} technical risks")
         
         return artifacts
     else:
@@ -145,20 +156,19 @@ def prepare_comprehensive_evidence():
         # Save enhanced policy evidence
         enhanced_policy_evidence = {
             "version": extended_policies["version"],
-            "regulation_count": len(extended_policies["regulations"]),
+            "regulation_count": len(extended_policies["regulatory_frameworks"]),
             "compliance_frameworks": len(extended_policies.get("compliance_frameworks", [])),
             "regulations": {}
         }
         
-        for regulation in extended_policies["regulations"]:
-            reg_id = regulation["regulation_id"]
-            enhanced_policy_evidence["regulations"][reg_id] = {
-                "title": regulation["title"],
+        for regulation_id, regulation in extended_policies["regulatory_frameworks"].items():
+            enhanced_policy_evidence["regulations"][regulation_id] = {
+                "title": regulation["full_name"],
                 "jurisdiction": regulation["jurisdiction"],
-                "effective_date": regulation["effective_date"],
+                "effective_date": regulation.get("effective_date", "N/A"),
                 "key_requirements_count": len(regulation["key_requirements"]),
-                "compliance_mechanisms_count": len(regulation["compliance_mechanisms"]),
-                "penalties": regulation["penalties"]
+                "compliance_mechanisms_count": len(regulation.get("compliance_mechanisms", [])),
+                "penalties": regulation.get("penalties", "Not specified")
             }
         
         evidence_file = evidence_dir / "comprehensive_policy_evidence.json"
@@ -166,8 +176,8 @@ def prepare_comprehensive_evidence():
             json.dump(enhanced_policy_evidence, f, indent=2)
         
         print(f"✅ Enhanced policy evidence: {evidence_file}")
-        print(f"   📋 Regulations covered: {len(extended_policies['regulations'])}")
-        print(f"   🌍 Jurisdictions: {', '.join(set(r['jurisdiction'] for r in extended_policies['regulations']))}")
+        print(f"   📋 Regulations covered: {len(extended_policies['regulatory_frameworks'])}")
+        print(f"   🌍 Jurisdictions: {', '.join(set(r['jurisdiction'] for r in extended_policies['regulatory_frameworks'].values()))}")
     
     # Load comprehensive test cases
     test_cases_path = Path("./data/artifacts/comprehensive_test_cases.md")
@@ -333,11 +343,11 @@ def main():
             df = pd.read_csv(dataset_path)
             print(f"\n📊 Comprehensive Dataset Loaded:")
             print(f"   📋 Total Features: {len(df)}")
-            print(f"   📋 Features with PRDs: {df['prd_available'].sum()}")
-            print(f"   📋 Features with TRDs: {df['trd_available'].sum()}")
-            print(f"   📋 Features with Design Docs: {df['design_docs'].sum()}")
-            print(f"   📋 Features with User Stories: {df['user_stories'].sum()}")
-            print(f"   📋 Features with Test Cases: {df['test_cases'].sum()}")
+            print(f"   📋 Features with PRDs: {(df['prd_version'].notna()).sum()}")
+            print(f"   📋 Features with TRDs: {(df['trd_version'].notna()).sum()}")
+            print(f"   📋 Safety Critical Features: {df['safety_critical'].sum()}")
+            print(f"   📋 Age Verification Required: {df['age_verification_required'].sum()}")
+            print(f"   📋 Parental Consent Required: {df['parental_consent_required'].sum()}")
             print(f"   ⚖️  Compliance Domains: {', '.join(df['compliance_domains'].str.split(',').explode().unique())}")
             print(f"   🎯 Business Impact Distribution:")
             print(f"      • Critical: {(df['business_impact'] == 'critical').sum()}")

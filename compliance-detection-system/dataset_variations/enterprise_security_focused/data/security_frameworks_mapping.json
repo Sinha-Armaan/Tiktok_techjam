@@ -1,0 +1,92 @@
+{
+  "version": "3.0",
+  "last_updated": "2025-08-29T23:57:43.860456",
+  "security_frameworks": {
+    "nist_cybersecurity_framework": {
+      "full_name": "NIST Cybersecurity Framework",
+      "version": "2.0",
+      "publisher": "National Institute of Standards and Technology",
+      "functions": [
+        "Identify",
+        "Protect",
+        "Detect",
+        "Respond",
+        "Recover",
+        "Govern"
+      ],
+      "applicability": "All organizations",
+      "key_controls": [
+        "Asset Management (ID.AM)",
+        "Access Control (PR.AC)",
+        "Continuous Monitoring (DE.CM)",
+        "Incident Response (RS.RP)",
+        "Recovery Planning (RC.RP)"
+      ]
+    },
+    "iso_27001": {
+      "full_name": "ISO/IEC 27001:2022 Information Security Management",
+      "version": "2022",
+      "publisher": "International Organization for Standardization",
+      "domains": [
+        "Security Policy",
+        "Risk Management",
+        "Asset Management",
+        "Access Control",
+        "Cryptography"
+      ],
+      "controls": 93,
+      "certification_required": true
+    },
+    "soc2_type2": {
+      "full_name": "Service Organization Control 2 Type II",
+      "publisher": "AICPA",
+      "trust_principles": [
+        "Security",
+        "Availability",
+        "Processing Integrity",
+        "Confidentiality",
+        "Privacy"
+      ],
+      "audit_period": "12 months minimum",
+      "focus": "Operational effectiveness of controls"
+    },
+    "cis_controls": {
+      "full_name": "CIS Critical Security Controls",
+      "version": "8.0",
+      "publisher": "Center for Internet Security",
+      "implementation_groups": [
+        "IG1",
+        "IG2",
+        "IG3"
+      ],
+      "controls": 18,
+      "focus": "Practical defensive measures"
+    }
+  },
+  "threat_intelligence": {
+    "mitre_attack": {
+      "full_name": "MITRE ATT&CK Framework",
+      "version": "14.1",
+      "tactics": 14,
+      "techniques": "600+",
+      "data_sources": "40+",
+      "use_cases": [
+        "Threat hunting",
+        "Detection engineering",
+        "Red teaming"
+      ]
+    },
+    "kill_chain": {
+      "full_name": "Lockheed Martin Cyber Kill Chain",
+      "phases": [
+        "Reconnaissance",
+        "Weaponization",
+        "Delivery",
+        "Exploitation",
+        "Installation",
+        "Command & Control",
+        "Actions on Objectives"
+      ]
+    }
+  }
+}

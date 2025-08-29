@@ -1,0 +1,14 @@
+frameworks:
+  coppa:
+    enforcement_agency: FTC
+    key_requirements:
+    - parental_consent
+    - data_minimization
+    - parental_access_rights
+  utah_social_media_act:
+    effective_date: '2024-03-01'
+    jurisdiction: Utah, US
+    key_requirements:
+    - age_verification
+    - parental_consent
+    - curfew_restrictions

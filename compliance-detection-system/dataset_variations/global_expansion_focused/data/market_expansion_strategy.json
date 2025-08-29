@@ -1,0 +1,70 @@
+{
+  "version": "2.0",
+  "last_updated": "2025-08-30T00:12:00.575835",
+  "expansion_strategy": {
+    "tier_1_markets": {
+      "priority": "immediate",
+      "markets": [
+        "Germany",
+        "France",
+        "Japan",
+        "Australia",
+        "Canada"
+      ],
+      "timeline": "Q4 2025",
+      "investment": "$50M",
+      "regulatory_complexity": "high",
+      "market_size": "large",
+      "competitive_landscape": "established"
+    },
+    "tier_2_markets": {
+      "priority": "short_term",
+      "markets": [
+        "Brazil",
+        "India",
+        "South Korea",
+        "Mexico",
+        "Netherlands"
+      ],
+      "timeline": "Q2 2026",
+      "investment": "$30M",
+      "regulatory_complexity": "medium",
+      "market_size": "large",
+      "competitive_landscape": "growing"
+    },
+    "tier_3_markets": {
+      "priority": "medium_term",
+      "markets": [
+        "Singapore",
+        "UAE",
+        "South Africa",
+        "Indonesia",
+        "Thailand"
+      ],
+      "timeline": "Q4 2026",
+      "investment": "$20M",
+      "regulatory_complexity": "variable",
+      "market_size": "medium",
+      "competitive_landscape": "emerging"
+    }
+  },
+  "localization_requirements": {
+    "mandatory": [
+      "data_residency",
+      "local_language",
+      "currency",
+      "payment_methods"
+    ],
+    "recommended": [
+      "cultural_adaptation",
+      "local_partnerships",
+      "regional_customer_support"
+    ],
+    "compliance": [
+      "privacy_laws",
+      "content_regulations",
+      "tax_requirements",
+      "employment_law"
+    ]
+  }
+}

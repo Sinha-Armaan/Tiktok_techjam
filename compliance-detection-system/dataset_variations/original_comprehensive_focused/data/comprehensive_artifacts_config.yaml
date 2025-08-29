@@ -1,0 +1,8 @@
+artifact_management:
+  ai_enhancement: true
+  required_artifacts:
+  - prd
+  - trd
+  - test_cases
+  storage_location: data/artifacts/
+  version: '1.0'

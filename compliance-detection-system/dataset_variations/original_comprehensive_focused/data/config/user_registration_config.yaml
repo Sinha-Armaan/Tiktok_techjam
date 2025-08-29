@@ -1,0 +1,25 @@
+age_verification:
+  confidence_threshold: 0.95
+  providers:
+    fallback: manual_review
+    primary: jumio
+    secondary: onfido
+compliance:
+  coppa:
+    age_threshold: 13
+    enabled: true
+  utah_act:
+    age_threshold: 18
+    curfew_hours:
+      end: 06:30
+      start: '22:30'
+    enabled: true
+feature_name: user_registration
+parental_consent:
+  consent_timeout_days: 30
+  methods:
+  - email_credit_card
+  - signed_form
+  - video_conference
+  - phone_verification
+version: '2.1'

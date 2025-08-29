@@ -1,0 +1,23 @@
+global_operations:
+  compliance_monitoring:
+    automated_scanning: true
+    privacy_impact_assessments: mandatory_for_new_features
+    regulatory_updates: daily
+  default_language: en
+  default_timezone: UTC
+  regional_data_centers:
+    americas: us-east-1
+    apac: ap-southeast-1
+    emea: eu-west-1
+  supported_languages:
+  - en
+  - es
+  - pt
+  - fr
+  - de
+  - it
+  - ja
+  - ko
+  - zh
+  - ar
+  version: '1.0'

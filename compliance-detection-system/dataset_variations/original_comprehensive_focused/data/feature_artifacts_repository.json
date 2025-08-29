@@ -1,0 +1,138 @@
+{
+  "version": "2.0",
+  "last_updated": "2025-08-30T00:27:18.715797",
+  "features": {
+    "user_registration": {
+      "feature_metadata": {
+        "feature_id": "user_registration",
+        "title": "User Registration System",
+        "description": "Complete user onboarding with age verification and parental consent",
+        "version": "v2.1",
+        "compliance_domains": [
+          "coppa",
+          "gdpr",
+          "utah_social_media_act"
+        ],
+        "business_impact": "critical",
+        "risk_level": "high",
+        "safety_critical": true
+      },
+      "primary_artifacts": {
+        "prd": {
+          "path": "artifacts/user_registration_prd.md",
+          "version": "v2.1",
+          "last_updated": "2024-12-15"
+        },
+        "trd": {
+          "path": "artifacts/user_registration_trd.md",
+          "version": "v2.1",
+          "last_updated": "2024-12-15"
+        }
+      },
+      "design_documents": {
+        "system_architecture": {
+          "path": "artifacts/design/system_architecture.md"
+        },
+        "database_design": {
+          "path": "artifacts/design/database_design.md"
+        },
+        "api_design": {
+          "path": "artifacts/design/api_design.md"
+        }
+      },
+      "quality_assurance": {
+        "test_cases": {
+          "path": "artifacts/test/comprehensive_test_cases.md"
+        }
+      }
+    },
+    "content_recommendation": {
+      "feature_metadata": {
+        "feature_id": "content_recommendation",
+        "title": "Content Recommendation Engine",
+        "description": "AI-powered content recommendation with safety filters",
+        "version": "v1.8",
+        "compliance_domains": [
+          "coppa",
+          "gdpr",
+          "algorithm_transparency"
+        ],
+        "business_impact": "high",
+        "risk_level": "medium",
+        "safety_critical": true
+      },
+      "primary_artifacts": {
+        "prd": {
+          "path": "artifacts/content_recommendation_prd.md",
+          "version": "v1.8",
+          "last_updated": "2024-12-10"
+        },
+        "trd": {
+          "path": "artifacts/content_recommendation_trd.md",
+          "version": "v1.8",
+          "last_updated": "2024-12-10"
+        }
+      },
+      "design_documents": {
+        "system_architecture": {
+          "path": "artifacts/design/system_architecture.md"
+        },
+        "database_design": {
+          "path": "artifacts/design/database_design.md"
+        },
+        "api_design": {
+          "path": "artifacts/design/api_design.md"
+        }
+      },
+      "quality_assurance": {
+        "test_cases": {
+          "path": "artifacts/test/comprehensive_test_cases.md"
+        }
+      }
+    },
+    "crisis_intervention": {
+      "feature_metadata": {
+        "feature_id": "crisis_intervention",
+        "title": "Crisis Intervention System",
+        "description": "Automated crisis detection and intervention for user safety",
+        "version": "v3.0",
+        "compliance_domains": [
+          "crisis_intervention",
+          "privacy",
+          "emergency_response"
+        ],
+        "business_impact": "critical",
+        "risk_level": "critical",
+        "safety_critical": true
+      },
+      "primary_artifacts": {
+        "prd": {
+          "path": "artifacts/crisis_intervention_prd.md",
+          "version": "v3.0",
+          "last_updated": "2024-12-12"
+        },
+        "trd": {
+          "path": "artifacts/crisis_intervention_trd.md",
+          "version": "v3.0",
+          "last_updated": "2024-12-12"
+        }
+      },
+      "design_documents": {
+        "system_architecture": {
+          "path": "artifacts/design/system_architecture.md"
+        },
+        "database_design": {
+          "path": "artifacts/design/database_design.md"
+        },
+        "api_design": {
+          "path": "artifacts/design/api_design.md"
+        }
+      },
+      "quality_assurance": {
+        "test_cases": {
+          "path": "artifacts/test/comprehensive_test_cases.md"
+        }
+      }
+    }
+  }
+}

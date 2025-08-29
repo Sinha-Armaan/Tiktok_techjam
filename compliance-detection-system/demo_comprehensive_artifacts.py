@@ -23,7 +23,7 @@ import sys
 from pathlib import Path
 
 # Add the project root to the path
-project_root = Path(__file__).parent.parent
+project_root = Path(__file__).parent  # compliance-detection-system directory
 sys.path.append(str(project_root))
 
 from sample_repo.enhanced_features_with_artifacts import (

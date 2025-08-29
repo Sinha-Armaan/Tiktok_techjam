@@ -1,0 +1,123 @@
+{
+  "version": "4.0",
+  "last_updated": "2025-08-30T00:12:00.574835",
+  "regional_regulations": {
+    "european_union": {
+      "primary_regulation": "GDPR",
+      "full_name": "General Data Protection Regulation",
+      "effective_date": "2018-05-25",
+      "scope": "EU/EEA residents",
+      "key_principles": [
+        "lawfulness",
+        "fairness",
+        "transparency",
+        "purpose_limitation",
+        "data_minimisation"
+      ],
+      "data_subject_rights": [
+        "access",
+        "rectification",
+        "erasure",
+        "portability",
+        "restriction",
+        "objection"
+      ],
+      "fines": "Up to \u20ac20M or 4% of annual revenue",
+      "supervisory_authorities": [
+        "EDPB",
+        "National DPAs"
+      ],
+      "transfer_mechanisms": [
+        "Adequacy decisions",
+        "Standard Contractual Clauses",
+        "Binding Corporate Rules"
+      ]
+    },
+    "united_states": {
+      "federal_regulations": [
+        "COPPA",
+        "HIPAA",
+        "GLBA",
+        "FERPA"
+      ],
+      "state_regulations": {
+        "california": {
+          "regulation": "CCPA/CPRA",
+          "full_name": "California Consumer Privacy Act / California Privacy Rights Act",
+          "effective_date": "2020-01-01",
+          "scope": "California residents",
+          "consumer_rights": [
+            "know",
+            "delete",
+            "opt-out",
+            "non-discrimination",
+            "correct",
+            "limit"
+          ]
+        },
+        "virginia": {
+          "regulation": "VCDPA",
+          "full_name": "Virginia Consumer Data Protection Act",
+          "effective_date": "2023-01-01"
+        },
+        "colorado": {
+          "regulation": "CPA",
+          "full_name": "Colorado Privacy Act",
+          "effective_date": "2023-07-01"
+        }
+      }
+    },
+    "canada": {
+      "primary_regulation": "PIPEDA",
+      "full_name": "Personal Information Protection and Electronic Documents Act",
+      "provincial_laws": [
+        "PIPA (Alberta)",
+        "PIPA (BC)",
+        "Act 25 (Quebec)"
+      ],
+      "proposed_updates": "Bill C-27 (Consumer Privacy Protection Act)"
+    },
+    "brazil": {
+      "primary_regulation": "LGPD",
+      "full_name": "Lei Geral de Prote\u00e7\u00e3o de Dados",
+      "effective_date": "2020-09-18",
+      "supervisory_authority": "ANPD"
+    },
+    "singapore": {
+      "primary_regulation": "PDPA",
+      "full_name": "Personal Data Protection Act",
+      "supervisory_authority": "PDPC"
+    },
+    "australia": {
+      "primary_regulation": "Privacy Act 1988",
+      "supervisory_authority": "OAIC"
+    },
+    "india": {
+      "proposed_regulation": "Digital Personal Data Protection Act 2023",
+      "status": "Enacted, rules pending"
+    },
+    "united_kingdom": {
+      "primary_regulation": "UK GDPR + Data Protection Act 2018",
+      "supervisory_authority": "ICO"
+    }
+  },
+  "cross_border_mechanisms": {
+    "adequacy_decisions": [
+      "EEA countries",
+      "UK",
+      "Switzerland",
+      "Canada",
+      "Japan",
+      "South Korea",
+      "New Zealand"
+    ],
+    "standard_contractual_clauses": {
+      "eu_commission_sccs": "2021/914",
+      "uk_idta": "International Data Transfer Agreement"
+    },
+    "binding_corporate_rules": {
+      "scope": "Intra-group transfers",
+      "approval_process": "Lead supervisory authority"
+    }
+  }
+}
