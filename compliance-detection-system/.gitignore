@@ -44,6 +44,7 @@ Thumbs.db
 # Artifacts
 artifacts/
 !artifacts/.gitkeep
+!data/artifacts/
 
 # Logs
 *.log
