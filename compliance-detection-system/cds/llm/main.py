@@ -11,8 +11,18 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 import logging
 from datetime import datetime
+from dotenv import load_dotenv
 
-# Google Cloud AI Platform imports with fallback
+# Load environment variables
+load_dotenv()
+
+# Google AI imports with fallbacks
+try:
+    import google.generativeai as genai
+    GOOGLE_AI_AVAILABLE = True
+except ImportError:
+    GOOGLE_AI_AVAILABLE = False
+
 try:
     from google.cloud import aiplatform
     from vertexai.preview.generative_models import GenerativeModel
@@ -143,26 +153,86 @@ class PolicySnippetManager:
 
 
 class GeminiClient:
-    """Gemini 1.5 Pro client for compliance analysis"""
+    """Gemini client supporting both Google AI Studio and Vertex AI"""
     
     def __init__(self):
+        # Google AI Studio configuration (preferred)
+        self.api_key = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
+        
+        # Vertex AI configuration (fallback)
         self.project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
         self.location = os.getenv("GEMINI_LOCATION", "us-central1")
+        
+        # Model configuration
         self.model_name = os.getenv("GEMINI_MODEL", "gemini-1.5-pro")
         self.temperature = float(os.getenv("GEMINI_TEMPERATURE", "0.2"))
         
-        if not VERTEX_AI_AVAILABLE:
-            logger.warning("Vertex AI not available - using mock implementation")
-        elif not self.project_id:
-            logger.warning("GOOGLE_CLOUD_PROJECT not set - using mock implementation")
+        # Determine which API to use
+        self.use_google_ai = self.api_key and GOOGLE_AI_AVAILABLE
+        self.use_vertex_ai = self.project_id and VERTEX_AI_AVAILABLE
+        
+        if self.use_google_ai:
+            genai.configure(api_key=self.api_key)
+            logger.info(f"Using Google AI Studio API with model: {self.model_name}")
+        elif self.use_vertex_ai:
+            logger.info(f"Using Vertex AI with project: {self.project_id}")
+        else:
+            logger.warning("Neither Google AI Studio API key nor Vertex AI project configured - using mock implementation")
     
     def analyze_compliance(self, evidence: EvidencePack, rules_result: RulesResult, 
                           policy_snippets: List[PolicySnippet]) -> FinalRecord:
         """Analyze compliance evidence and generate final record"""
         
-        if not VERTEX_AI_AVAILABLE or not self.project_id:
+        if self.use_google_ai:
+            return self._analyze_with_google_ai(evidence, rules_result, policy_snippets)
+        elif self.use_vertex_ai:
+            return self._analyze_with_vertex_ai(evidence, rules_result, policy_snippets)
+        else:
             return self._mock_analysis(evidence, rules_result, policy_snippets)
-        
+    
+    def _analyze_with_google_ai(self, evidence: EvidencePack, rules_result: RulesResult, 
+                               policy_snippets: List[PolicySnippet]) -> FinalRecord:
+        """Analyze using Google AI Studio API"""
+        try:
+            # Initialize the model
+            model = genai.GenerativeModel(self.model_name)
+            
+            # Prepare prompt
+            prompt = self._build_analysis_prompt(evidence, rules_result, policy_snippets)
+            
+            # Configure generation
+            generation_config = genai.types.GenerationConfig(
+                temperature=self.temperature,
+                max_output_tokens=2048,
+                candidate_count=1
+            )
+            
+            # Generate response
+            response = model.generate_content(prompt, generation_config=generation_config)
+            
+            # Parse response
+            response_text = response.text.strip()
+            
+            # Handle markdown code blocks
+            if response_text.startswith('```json') and response_text.endswith('```'):
+                response_text = response_text[7:-3].strip()
+            elif response_text.startswith('```') and response_text.endswith('```'):
+                response_text = response_text[3:-3].strip()
+            
+            try:
+                result_data = json.loads(response_text)
+                return self._create_final_record(evidence.feature_id, result_data, rules_result)
+            except json.JSONDecodeError:
+                logger.error(f"Failed to parse Gemini response as JSON. Response was: {response.text[:500]}...")
+                return self._create_fallback_record(evidence, rules_result)
+                
+        except Exception as e:
+            logger.error(f"Google AI Studio analysis failed: {e}")
+            return self._create_fallback_record(evidence, rules_result)
+    
+    def _analyze_with_vertex_ai(self, evidence: EvidencePack, rules_result: RulesResult, 
+                               policy_snippets: List[PolicySnippet]) -> FinalRecord:
+        """Analyze using Vertex AI"""
         try:
             # Initialize Vertex AI
             aiplatform.init(project=self.project_id, location=self.location)
@@ -182,15 +252,23 @@ class GeminiClient:
             )
             
             # Parse response
+            response_text = response.text.strip()
+            
+            # Handle markdown code blocks
+            if response_text.startswith('```json') and response_text.endswith('```'):
+                response_text = response_text[7:-3].strip()
+            elif response_text.startswith('```') and response_text.endswith('```'):
+                response_text = response_text[3:-3].strip()
+            
             try:
-                result_data = json.loads(response.text)
+                result_data = json.loads(response_text)
                 return self._create_final_record(evidence.feature_id, result_data, rules_result)
             except json.JSONDecodeError:
                 logger.error("Failed to parse Gemini response as JSON")
                 return self._create_fallback_record(evidence, rules_result)
                 
         except Exception as e:
-            logger.error(f"Gemini analysis failed: {e}")
+            logger.error(f"Vertex AI analysis failed: {e}")
             return self._create_fallback_record(evidence, rules_result)
     
     def _build_analysis_prompt(self, evidence: EvidencePack, rules_result: RulesResult, 

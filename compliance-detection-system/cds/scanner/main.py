@@ -37,7 +37,17 @@ class SemgrepScanner:
                 str(repo_path)
             ]
             
-            result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+            result = subprocess.run(cmd, capture_output=True, text=True, check=False)
+            
+            # Check for actual failures (non-zero exit code with no stdout)
+            if result.returncode != 0 and not result.stdout:
+                logger.error(f"Semgrep scan failed: {result.stderr}")
+                return {}
+            
+            # Log warnings but don't fail (semgrep often outputs warnings to stderr)
+            if result.stderr and result.stderr.strip():
+                logger.warning(f"Semgrep warnings: {result.stderr}")
+            
             data = json.loads(result.stdout)
             
             # Group findings by rule ID

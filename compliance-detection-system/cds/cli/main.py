@@ -10,6 +10,23 @@ from rich.table import Table
 import sys
 from pathlib import Path
 from typing import Optional
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+from ..scanner.main import scan_repository
+from ..runtime.main import probe_feature  
+from ..rules.main import evaluate_feature
+from ..llm.main import explain_feature
+from ..evidence.pipeline import run_pipeline
+
+import typer
+from rich.console import Console
+from rich.table import Table
+import sys
+from pathlib import Path
+from typing import Optional
 
 from ..scanner.main import scan_repository
 from ..runtime.main import probe_feature  

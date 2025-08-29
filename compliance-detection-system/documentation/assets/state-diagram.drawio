@@ -1,0 +1,381 @@
+<mxfile host="draw.io" modified="2024-12-15T10:55:00.000Z" agent="CDS Documentation Generator" version="24.7.17">
+  <diagram name="CDS Pipeline State Machine" id="state_diagram">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Initial State -->
+        <mxCell id="initial" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Idle State -->
+        <mxCell id="idle" value="Idle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Configuration Loading State -->
+        <mxCell id="loading_config" value="Loading&#10;Configuration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Static Analysis States -->
+        <mxCell id="scanning" value="Static Analysis&#10;Running" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="scan_processing" value="Processing&#10;Static Signals" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Runtime Probing States -->
+        <mxCell id="probing" value="Runtime Probing&#10;Active" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="probe_processing" value="Processing&#10;Runtime Signals" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Rules Evaluation States -->
+        <mxCell id="evaluating" value="Rules&#10;Evaluation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="rule_processing" value="Calculating&#10;Compliance&#10;Verdicts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- LLM Analysis States -->
+        <mxCell id="llm_analysis" value="LLM Analysis&#10;Requesting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="llm_processing" value="Processing&#10;AI Explanations" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Report Generation States -->
+        <mxCell id="reporting" value="Report&#10;Generation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Final States -->
+        <mxCell id="completed" value="Completed&#10;Successfully" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="failed" value="Failed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Error Recovery State -->
+        <mxCell id="error_recovery" value="Error Recovery&#10;&amp; Partial&#10;Results" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Interruption Handling -->
+        <mxCell id="interrupted" value="User&#10;Interrupted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- State Transitions -->
+        
+        <!-- Initial to Idle -->
+        <mxCell id="init_to_idle" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="initial" target="idle">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="init_to_idle_label" value="system start" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="130" y="95" width="60" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- Command Trigger -->
+        <mxCell id="idle_to_config" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="idle" target="loading_config">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="idle_to_config_label" value="cds command&#10;triggered" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="340" y="85" width="60" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Config to Scanning -->
+        <mxCell id="config_to_scan" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="loading_config" target="scanning">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="config_to_scan_label" value="config loaded&#10;start static analysis" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="145" width="80" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Scanning Progression -->
+        <mxCell id="scan_to_processing" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="scanning" target="scan_processing">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="scan_to_processing_label" value="scanners&#10;completed" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="340" y="215" width="60" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Static to Runtime (Pipeline mode) -->
+        <mxCell id="scan_to_probe" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="scan_processing" target="probing">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="scan_to_probe_label" value="pipeline mode&#10;start runtime&#10;probing" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="305" y="270" width="70" height="35" as="geometry" />
+        </mxCell>
+        
+        <!-- Runtime Probing Progression -->
+        <mxCell id="probe_to_processing" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="probing" target="probe_processing">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="probe_to_processing_label" value="probing&#10;completed" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="340" y="335" width="60" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Static to Rules (Skip Runtime) -->
+        <mxCell id="scan_to_rules" style="endArrow=classic;html=1;rounded=0;strokeColor=#666666;strokeWidth=1;dashed=1;" edge="1" parent="1" source="scan_processing" target="evaluating">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="scan_to_rules_label" value="skip runtime&#10;evaluate rules" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="525" y="185" width="60" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Runtime to Rules -->
+        <mxCell id="probe_to_rules" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="probe_processing" target="evaluating">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="probe_to_rules_label" value="evaluate&#10;compliance" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="540" y="275" width="50" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Rules Processing -->
+        <mxCell id="rules_to_processing" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="evaluating" target="rule_processing">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rules_to_processing_label" value="calculating&#10;verdicts" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="625" y="275" width="50" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Rules to LLM -->
+        <mxCell id="rules_to_llm" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="rule_processing" target="llm_analysis">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rules_to_llm_label" value="request AI&#10;explanations" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="725" y="275" width="60" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Rules to Report (Skip LLM) -->
+        <mxCell id="rules_to_report" style="endArrow=classic;html=1;rounded=0;strokeColor=#666666;strokeWidth=1;dashed=1;" edge="1" parent="1" source="rule_processing" target="reporting">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rules_to_report_label" value="skip LLM&#10;generate report" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="655" y="385" width="60" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- LLM Processing -->
+        <mxCell id="llm_to_processing" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="llm_analysis" target="llm_processing">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="llm_to_processing_label" value="API response&#10;received" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="825" y="275" width="60" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- LLM to Report -->
+        <mxCell id="llm_to_report" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="llm_processing" target="reporting">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="llm_to_report_label" value="generate&#10;final report" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="725" y="385" width="60" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Report to Completion -->
+        <mxCell id="report_to_completed" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="reporting" target="completed">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="report_to_completed_label" value="pipeline&#10;successful" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="505" width="60" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Error Transitions -->
+        
+        <!-- Config Error -->
+        <mxCell id="config_error" style="endArrow=classic;html=1;rounded=0;strokeColor=#b85450;strokeWidth=2;" edge="1" parent="1" source="loading_config" target="failed">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="config_error_label" value="config error&#10;invalid settings" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;color=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="280" y="350" width="80" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Scanning Error to Recovery -->
+        <mxCell id="scan_error" style="endArrow=classic;html=1;rounded=0;strokeColor=#d6b656;strokeWidth=2;" edge="1" parent="1" source="scanning" target="error_recovery">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="scan_error_label" value="scanner failure&#10;partial results" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;color=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="500" y="300" width="80" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Probing Error to Recovery -->
+        <mxCell id="probe_error" style="endArrow=classic;html=1;rounded=0;strokeColor=#d6b656;strokeWidth=2;" edge="1" parent="1" source="probing" target="error_recovery">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="probe_error_label" value="runtime probing&#10;timeout/failure" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;color=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="520" y="360" width="80" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- LLM Error to Recovery -->
+        <mxCell id="llm_error" style="endArrow=classic;html=1;rounded=0;strokeColor=#d6b656;strokeWidth=2;" edge="1" parent="1" source="llm_analysis" target="error_recovery">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="llm_error_label" value="API failure&#10;continue without&#10;explanations" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;color=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="820" y="380" width="80" height="35" as="geometry" />
+        </mxCell>
+        
+        <!-- Recovery to Report -->
+        <mxCell id="recovery_to_report" style="endArrow=classic;html=1;rounded=0;strokeColor=#d6b656;" edge="1" parent="1" source="error_recovery" target="reporting">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="recovery_to_report_label" value="generate partial&#10;report" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="725" y="455" width="70" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Interruption Handling -->
+        <mxCell id="interrupt_scan" style="endArrow=classic;html=1;rounded=0;strokeColor=#b85450;strokeWidth=2;" edge="1" parent="1" source="scanning" target="interrupted">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="interrupt_probe" style="endArrow=classic;html=1;rounded=0;strokeColor=#b85450;strokeWidth=2;" edge="1" parent="1" source="probing" target="interrupted">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="interrupt_llm" style="endArrow=classic;html=1;rounded=0;strokeColor=#b85450;strokeWidth=2;" edge="1" parent="1" source="llm_analysis" target="interrupted">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Interrupt Label -->
+        <mxCell id="interrupt_label" value="Ctrl+C&#10;user interrupt" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;color=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="400" y="400" width="70" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- Return to Idle -->
+        <mxCell id="completed_to_idle" style="endArrow=classic;html=1;rounded=0;strokeColor=#82b366;" edge="1" parent="1" source="completed" target="idle">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="failed_to_idle" style="endArrow=classic;html=1;rounded=0;strokeColor=#b85450;" edge="1" parent="1" source="failed" target="idle">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="interrupted_to_idle" style="endArrow=classic;html=1;rounded=0;strokeColor=#b85450;" edge="1" parent="1" source="interrupted" target="idle">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Return Labels -->
+        <mxCell id="return_label" value="ready for&#10;next command" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="120" y="400" width="60" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- State Details Box -->
+        <mxCell id="state_details" value="&lt;b&gt;State Behaviors:&lt;/b&gt;&#10;&#10;&lt;b&gt;Loading Configuration:&lt;/b&gt;&#10;• Parse YAML/JSON config files&#10;• Validate parameters&#10;• Initialize components&#10;&#10;&lt;b&gt;Static Analysis Running:&lt;/b&gt;&#10;• Execute semgrep rules&#10;• Parse AST with tree-sitter&#10;• Extract compliance signals&#10;&#10;&lt;b&gt;Runtime Probing Active:&lt;/b&gt;&#10;• Launch browser instances&#10;• Simulate user personas&#10;• Capture UI states &amp; network&#10;&#10;&lt;b&gt;Rules Evaluation:&lt;/b&gt;&#10;• Apply JSON Logic rules&#10;• Calculate confidence scores&#10;• Generate compliance verdicts&#10;&#10;&lt;b&gt;LLM Analysis Requesting:&lt;/b&gt;&#10;• Format evidence for AI&#10;• Call Gemini API&#10;• Process explanations&#10;&#10;&lt;b&gt;Error Recovery:&lt;/b&gt;&#10;• Preserve partial results&#10;• Generate degraded report&#10;• Log error details" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="680" width="480" height="180" as="geometry" />
+        </mxCell>
+        
+        <!-- Timing Information -->
+        <mxCell id="timing_info" value="&lt;b&gt;Typical State Durations:&lt;/b&gt;&#10;&#10;&lt;b&gt;Configuration Loading:&lt;/b&gt; 1-3 seconds&#10;&lt;b&gt;Static Analysis:&lt;/b&gt; 5-30 seconds&#10;&lt;b&gt;Static Processing:&lt;/b&gt; 2-5 seconds&#10;&lt;b&gt;Runtime Probing:&lt;/b&gt; 30-120 seconds&#10;&lt;b&gt;Runtime Processing:&lt;/b&gt; 5-10 seconds&#10;&lt;b&gt;Rules Evaluation:&lt;/b&gt; 1-5 seconds&#10;&lt;b&gt;Rules Processing:&lt;/b&gt; 1-3 seconds&#10;&lt;b&gt;LLM Analysis:&lt;/b&gt; 5-15 seconds&#10;&lt;b&gt;LLM Processing:&lt;/b&gt; 2-5 seconds&#10;&lt;b&gt;Report Generation:&lt;/b&gt; 2-10 seconds&#10;&#10;&lt;b&gt;Total Pipeline:&lt;/b&gt; 45-180 seconds&#10;&lt;b&gt;Static-Only:&lt;/b&gt; 15-60 seconds" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="580" y="680" width="240" height="180" as="geometry" />
+        </mxCell>
+        
+        <!-- Command Variants -->
+        <mxCell id="command_variants" value="&lt;b&gt;Command-Specific Flows:&lt;/b&gt;&#10;&#10;&lt;b&gt;cds scan:&lt;/b&gt;&#10;Idle → Config → Static → Complete&#10;&#10;&lt;b&gt;cds probe:&lt;/b&gt;&#10;Idle → Config → Runtime → Complete&#10;&#10;&lt;b&gt;cds evaluate:&lt;/b&gt;&#10;Idle → Config → Rules → Complete&#10;&#10;&lt;b&gt;cds explain:&lt;/b&gt;&#10;Idle → Config → LLM → Complete&#10;&#10;&lt;b&gt;cds pipeline:&lt;/b&gt;&#10;Idle → Config → Static → Runtime → Rules → LLM → Report → Complete&#10;&#10;&lt;b&gt;Error Handling:&lt;/b&gt;&#10;• Critical errors → Failed state&#10;• Recoverable errors → Error Recovery&#10;• User interruption → Interrupted state&#10;• All final states return to Idle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#666666;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="860" y="680" width="280" height="180" as="geometry" />
+        </mxCell>
+        
+        <!-- Final State Indicator -->
+        <mxCell id="final_state" value="" style="ellipse;html=1;shape=doubleEllipse;whiteSpace=wrap;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="100" y="570" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Final State Connection -->
+        <mxCell id="final_connection" style="endArrow=none;html=1;rounded=0;strokeColor=#666666;strokeWidth=1;dashed=1;" edge="1" parent="1" source="final_state" target="idle">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -7,3 +7,11 @@ jinja2
 httpx
 python-dotenv
 semgrep
+ncmec
+pytest
+pyyaml
+json-logic-qubit
+playwright
+google-cloud-aiplatform
+chromium
+google-generativeai

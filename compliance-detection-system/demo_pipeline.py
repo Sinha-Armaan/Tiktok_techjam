@@ -10,6 +10,10 @@ import json
 import sys
 from pathlib import Path
 import pandas as pd
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Add the cds module to Python path
 sys.path.insert(0, str(Path(__file__).parent))

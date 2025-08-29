@@ -1,0 +1,92 @@
+{
+  "feature_id": "test_user_registration",
+  "signals": {
+    "static": {
+      "geo_branching": [
+        {
+          "file": "sample_repo/user_registration.py",
+          "line": 15,
+          "message": "Geographic country list detected",
+          "countries": [
+            "US",
+            "CA",
+            "GB",
+            "FR",
+            "DE"
+          ]
+        }
+      ],
+      "age_checks": [
+        {
+          "file": "sample_repo/user_registration.py",
+          "line": 32,
+          "message": "Age verification import found",
+          "lib": "age_gate",
+          "method": null
+        }
+      ],
+      "data_residency": [
+        {
+          "file": "sample_repo/privacy_settings.py",
+          "line": 95,
+          "message": "Data region configuration",
+          "region": "us-east",
+          "service": null
+        },
+        {
+          "file": "sample_repo/privacy_settings.py",
+          "line": 96,
+          "message": "EU data region configuration",
+          "region": "eu-west",
+          "service": null
+        }
+      ],
+      "reporting_clients": [
+        "NCMEC"
+      ],
+      "reco_system": false,
+      "pf_controls": true,
+      "flags": [
+        {
+          "name": "COMPLIANCE_UTAH_MINORS",
+          "file": null,
+          "line": null
+        },
+        {
+          "name": "COMPLIANCE_GDPR_MODE",
+          "file": null,
+          "line": null
+        },
+        {
+          "name": "COMPLIANCE_COPPA_STRICT",
+          "file": null,
+          "line": null
+        }
+      ],
+      "tags": [
+        "user_data",
+        "age_verification",
+        "geo_restrictions"
+      ],
+      "all_countries": [
+        "CA",
+        "US",
+        "DE",
+        "FR",
+        "GB"
+      ],
+      "all_regions": [
+        "us-east",
+        "eu-west"
+      ]
+    }
+  },
+  "attachments": [],
+  "metadata": {
+    "repo": "./sample_repo",
+    "commit": "test_commit",
+    "branch": null,
+    "scan_timestamp": "2025-08-29 05:09:30.694620",
+    "scanner_version": null
+  }
+}
