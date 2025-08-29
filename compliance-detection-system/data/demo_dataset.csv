@@ -1,0 +1,6 @@
+feature_id,repo_path,description
+user_registration_system,./sample_repo,User registration with age verification and geographic restrictions
+content_recommendation_engine,./sample_repo,Content recommendation system with CSAM detection and NCMEC reporting
+privacy_settings_manager,./sample_repo,Privacy settings with GDPR and CCPA compliance features
+messaging_system,./sample_repo,Direct messaging with minor protection features
+age_verification_gate,./sample_repo,Age gate implementation for COPPA compliance

@@ -22,13 +22,13 @@ sys.path.insert(0, str(Path(__file__).parent))
 from cds.evidence.pipeline import run_pipeline
 
 
-def load_comprehensive_dataset():
-    """Load the comprehensive feature artifacts dataset"""
-    print("📋 Loading comprehensive feature artifacts dataset...")
+def load_comprehensive_dataset(dataset_variation="original_comprehensive_focused"):
+    """Load the comprehensive feature artifacts dataset from specified variation"""
+    print(f"📋 Loading comprehensive feature artifacts dataset from {dataset_variation}...")
     
-    dataset_path = Path("./data/comprehensive_features_dataset.csv")
+    dataset_path = Path(f"./dataset_variations/{dataset_variation}/data/comprehensive_features_dataset.csv")
     if not dataset_path.exists():
-        print("❌ Comprehensive dataset not found. Creating basic demo dataset...")
+        print(f"❌ Comprehensive dataset not found at {dataset_path}. Creating basic demo dataset...")
         return create_basic_demo_dataset()
     
     # Load comprehensive dataset
@@ -210,15 +210,27 @@ def prepare_comprehensive_evidence():
     print(f"📁 Evidence preparation complete")
 
 
-def create_demo_dataset():
-    """Create enhanced demo dataset with comprehensive artifacts"""
-    print("📋 Creating enhanced demo dataset with comprehensive artifacts...")
+def create_demo_dataset(dataset_variation="original_comprehensive_focused"):
+    """Create enhanced demo dataset with comprehensive artifacts from specified variation"""
+    print(f"📋 Creating enhanced demo dataset from {dataset_variation}...")
     
-    # Try to load comprehensive dataset first
-    comprehensive_path = Path("./data/comprehensive_features_dataset.csv")
+    # Try to load comprehensive dataset from specified variation first
+    comprehensive_path = Path(f"./dataset_variations/{dataset_variation}/data/comprehensive_features_dataset.csv")
     if comprehensive_path.exists():
         print(f"✅ Using comprehensive features dataset: {comprehensive_path}")
         return comprehensive_path
+    
+    # Try alternative dataset names for different variations
+    variation_files = {
+        "enterprise_security_focused": "enterprise_security_features.csv",
+        "global_expansion_focused": "global_expansion_features.csv"
+    }
+    
+    if dataset_variation in variation_files:
+        alt_path = Path(f"./dataset_variations/{dataset_variation}/data/{variation_files[dataset_variation]}")
+        if alt_path.exists():
+            print(f"✅ Using {dataset_variation} features dataset: {alt_path}")
+            return alt_path
     
     # Fallback to basic dataset
     return create_basic_demo_dataset()
@@ -321,19 +333,26 @@ def prepare_demo_evidence():
     print(f"✅ Created {len(demo_evidence)} evidence files")
 
 
-def main():
+def main(dataset_variation="original_comprehensive_focused"):
     """Run the complete demo pipeline with comprehensive feature artifacts"""
+    variation_names = {
+        "original_comprehensive_focused": "Original Comprehensive",
+        "enterprise_security_focused": "Enterprise Security",
+        "global_expansion_focused": "Global Expansion"
+    }
+    
     print("🚀 CDS Compliance Detection System - Enhanced Pipeline Demo")
     print("=" * 80)
+    print(f"🎯 Dataset Variation: {variation_names.get(dataset_variation, dataset_variation)}")
     print("🎯 Features: Comprehensive artifacts including PRDs, TRDs, design docs, user stories, test cases, and risk assessments")
     print("=" * 80)
     
     try:
-        # Step 1: Load comprehensive artifacts
+        # Step 1: Load comprehensive artifacts from specified variation
         artifacts = load_comprehensive_artifacts()
         
-        # Step 2: Create enhanced demo dataset
-        dataset_path = create_demo_dataset()
+        # Step 2: Create enhanced demo dataset from specified variation
+        dataset_path = create_demo_dataset(dataset_variation)
         
         # Step 3: Prepare comprehensive evidence files
         prepare_comprehensive_evidence()
@@ -410,4 +429,23 @@ def main():
 
 
 if __name__ == "__main__":
-    exit(main())
+    import sys
+    
+    # Check for dataset variation argument
+    dataset_variation = "original_comprehensive_focused"  # Default
+    
+    if len(sys.argv) > 1:
+        dataset_variation = sys.argv[1]
+        
+    available_variations = [
+        "original_comprehensive_focused",
+        "enterprise_security_focused", 
+        "global_expansion_focused"
+    ]
+    
+    if dataset_variation not in available_variations:
+        print(f"❌ Invalid dataset variation: {dataset_variation}")
+        print(f"Available variations: {', '.join(available_variations)}")
+        exit(1)
+    
+    exit(main(dataset_variation))

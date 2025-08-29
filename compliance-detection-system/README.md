@@ -34,6 +34,126 @@ cds pipeline --dataset ./data/sample_dataset.csv --output ./artifacts/final.csv 
 - 📋 `./artifacts/report.html` - Interactive HTML report
 - 🗂️ `./artifacts/evidence/` - Detailed evidence files
 
+### Testing with Dataset Variations
+
+The system includes three specialized dataset variations with intentional compliance and security issues for testing:
+
+#### 📋 Run with Original Comprehensive Dataset
+```bash
+# Test general compliance detection (COPPA, GDPR, Utah Act)
+python demo_pipeline.py original_comprehensive_focused
+
+# Features: User registration, content recommendation, crisis intervention
+# Focus: General compliance with intentional gaps
+```
+
+#### 🔒 Run with Enterprise Security Dataset
+```bash
+# Test enterprise security vulnerability detection
+python demo_pipeline.py enterprise_security_focused
+
+# Features: Threat detection, zero trust, IAM, security monitoring
+# Focus: Security vulnerabilities and enterprise compliance gaps
+```
+
+#### 🌍 Run with Global Expansion Dataset
+```bash
+# Test international compliance and data sovereignty
+python demo_pipeline.py global_expansion_focused
+
+# Features: Multi-region compliance, localization, cross-border transfers
+# Focus: International regulations (GDPR, CCPA, PIPEDA, LGPD)
+```
+
+#### 🎯 What These Datasets Test
+Each dataset contains **intentional issues** for validation:
+
+**PRD-Level Issues:**
+- Missing age verification or COPPA compliance gaps
+- Inadequate data retention/deletion policies  
+- Missing consent management details
+- Insufficient privacy disclosures
+
+**TRD-Level Issues:**
+- Missing input validation (SQL injection risks)
+- Weak authentication/authorization mechanisms
+- Insecure data handling practices
+- Inadequate error handling exposing sensitive data
+
+**Code-Level Issues:**
+- Hardcoded secrets, API keys, passwords
+- SQL injection vulnerabilities
+- Missing authentication on sensitive endpoints
+- Weak encryption or plaintext PII storage
+
+#### 📊 Expected Results
+- **Original Comprehensive**: 3 features processed, multiple compliance gaps detected
+- **Enterprise Security**: 4 features processed, security vulnerabilities flagged
+- **Global Expansion**: 4 features processed, international compliance issues found
+
+All results include:
+- 📈 **CSV Results**: `artifacts/comprehensive_demo_results.csv`
+- 🌐 **HTML Report**: `artifacts/comprehensive_demo_report.html` 
+- 📁 **Evidence Files**: `artifacts/evidence/` directory
+- 🚩 **Issue Detection**: Known vulnerabilities flagged with `needs_review=True`
+
+#### 🔍 Generating Evidence Files (Required)
+
+Before running the pipeline, generate evidence files from the dataset artifacts:
+
+```bash
+# Generate evidence files for all dataset variations
+python generate_evidence.py
+
+# This creates evidence JSON files in artifacts/evidence/
+# Required for the pipeline to analyze the intentional issues
+```
+
+The evidence generator:
+- ✅ Creates evidence files for all 11 features across 3 dataset variations
+- ✅ Extracts content from PRDs, TRDs, and implementation code  
+- ✅ Pre-analyzes artifacts for compliance and security issues
+- ✅ Enables the pipeline to detect intentional vulnerabilities
+
+#### 📁 Dataset Variations Structure
+```
+dataset_variations/
+├── original_comprehensive_focused/    # General compliance (3 features)
+├── enterprise_security_focused/       # Security-focused (4 features)  
+└── global_expansion_focused/          # International (4 features)
+```
+
+Each variation contains:
+- 📊 **Feature datasets** (CSV files with metadata)
+- 📄 **Comprehensive artifacts** (PRDs, TRDs, design docs)
+- 💻 **Implementation code** (with intentional vulnerabilities)
+- 🎯 **Intentional issues** for testing compliance detection
+
+### ⚡ Quick Reference
+
+```bash
+# 1. Generate evidence files (run once)
+python generate_evidence.py
+# Creates evidence files for all 11 features across 3 dataset variations
+
+# 2. Test with different datasets
+python demo_pipeline.py original_comprehensive_focused    # General compliance
+python demo_pipeline.py enterprise_security_focused       # Security vulnerabilities  
+python demo_pipeline.py global_expansion_focused          # International compliance
+
+# 3. View results
+start artifacts/comprehensive_demo_report.html             # HTML report (Windows)
+open artifacts/comprehensive_demo_report.html              # HTML report (Mac/Linux)  
+code artifacts/comprehensive_demo_results.csv              # CSV results
+```
+
+**Expected Output per Run:**
+- 📊 3-4 features processed (varies by dataset)
+- 🚩 Multiple intentional issues detected  
+- 📋 Detailed evidence files generated
+- 🎯 All features flagged for manual review (`needs_review=True`)
+- ⚡ Uses existing compliance rules from `./data/rules/compliance_rules.json`
+
 ## 🏗️ Architecture
 
 ```

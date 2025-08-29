@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "snippets": [
+    {
+      "regulation_id": "utah_social_media_act",
+      "title": "Utah Social Media Regulation Act - Minor Protections",
+      "content": "Social media companies must implement curfew restrictions for users under 18 in Utah, blocking access between 10:30 PM and 6:30 AM unless parental consent is provided.",
+      "source_url": "https://le.utah.gov/~2023/bills/static/SB0152.html",
+      "effective_date": null,
+      "jurisdiction": "Utah, USA"
+    },
+    {
+      "regulation_id": "ncmec_reporting",
+      "title": "NCMEC Mandatory Reporting Requirements",
+      "content": "Electronic service providers must report known instances of child sexual abuse material (CSAM) to the National Center for Missing & Exploited Children within a reasonable time.",
+      "source_url": "https://www.missingkids.org/gethelpnow/cybertipline",
+      "effective_date": null,
+      "jurisdiction": "United States"
+    },
+    {
+      "regulation_id": "eu_dsa",
+      "title": "EU Digital Services Act - Transparency Obligations",
+      "content": "Very large online platforms must provide transparency reports, implement user flagging mechanisms, and establish appeal processes for content moderation decisions.",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/digital-services-act-package",
+      "effective_date": null,
+      "jurisdiction": "European Union"
+    },
+    {
+      "regulation_id": "gdpr",
+      "title": "GDPR - Lawful Basis for Processing",
+      "content": "Processing personal data requires a lawful basis under Article 6. Data subjects have rights to access, portability, erasure, and objection to processing.",
+      "source_url": "https://gdpr.eu/article-6-how-to-process-personal-data-legally/",
+      "effective_date": null,
+      "jurisdiction": "European Union"
+    },
+    {
+      "regulation_id": "coppa",
+      "title": "COPPA - Children's Online Privacy Protection",
+      "content": "Websites directed to children under 13 must obtain verifiable parental consent before collecting personal information from children.",
+      "source_url": "https://www.ftc.gov/enforcement/rules/rulemaking-regulatory-reform-proceedings/childrens-online-privacy-protection-rule",
+      "effective_date": null,
+      "jurisdiction": "United States"
+    }
+  ]
+}

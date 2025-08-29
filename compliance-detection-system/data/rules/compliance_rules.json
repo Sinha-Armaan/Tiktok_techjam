@@ -1,0 +1,229 @@
+{
+  "version": "1.0",
+  "rules": [
+    {
+      "id": "UT_MINORS_CURFEW",
+      "name": "Utah Minors Curfew Enforcement",
+      "logic": {
+        "and": [
+          {
+            "<": [
+              {
+                "var": "runtime.persona.age"
+              },
+              18
+            ]
+          },
+          {
+            "==": [
+              {
+                "var": "runtime.persona.country"
+              },
+              "US"
+            ]
+          },
+          {
+            "in": [
+              "UT",
+              {
+                "var": "static.geo_branching.*.countries"
+              }
+            ]
+          }
+        ]
+      },
+      "requires_controls": [
+        "curfew_enforcement",
+        "age_verification"
+      ],
+      "regulations": [
+        "Utah Social Media Regulation Act"
+      ],
+      "severity": "high",
+      "description": null,
+      "enabled": true
+    },
+    {
+      "id": "NCMEC_REPORTING",
+      "name": "NCMEC Mandatory Reporting",
+      "logic": {
+        "or": [
+          {
+            "in": [
+              "NCMEC",
+              {
+                "var": "static.reporting_clients"
+              }
+            ]
+          },
+          {
+            "in": [
+              "csam_detection",
+              {
+                "var": "static.tags"
+              }
+            ]
+          },
+          {
+            "==": [
+              {
+                "var": "static.reco_system"
+              },
+              true
+            ]
+          }
+        ]
+      },
+      "requires_controls": [
+        "ncmec_report_pipeline",
+        "content_moderation"
+      ],
+      "regulations": [
+        "US NCMEC reporting requirements"
+      ],
+      "severity": "critical",
+      "description": null,
+      "enabled": true
+    },
+    {
+      "id": "DSA_TRANSPARENCY",
+      "name": "EU Digital Services Act Transparency",
+      "logic": {
+        "and": [
+          {
+            "==": [
+              {
+                "var": "runtime.persona.country"
+              },
+              "EU"
+            ]
+          },
+          {
+            "or": [
+              {
+                "==": [
+                  {
+                    "var": "static.reco_system"
+                  },
+                  true
+                ]
+              },
+              {
+                "in": [
+                  "content_moderation",
+                  {
+                    "var": "static.tags"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "requires_controls": [
+        "transparency_reports",
+        "user_flagging",
+        "appeal_process"
+      ],
+      "regulations": [
+        "EU Digital Services Act"
+      ],
+      "severity": "high",
+      "description": null,
+      "enabled": true
+    },
+    {
+      "id": "STATE_MINORS_PF_DEFAULT_OFF",
+      "name": "State Minors Parental Features Default Off",
+      "logic": {
+        "and": [
+          {
+            "<": [
+              {
+                "var": "runtime.persona.age"
+              },
+              18
+            ]
+          },
+          {
+            "==": [
+              {
+                "var": "static.pf_controls"
+              },
+              true
+            ]
+          },
+          {
+            "in": [
+              "US",
+              {
+                "var": "static.geo_branching.*.countries"
+              }
+            ]
+          }
+        ]
+      },
+      "requires_controls": [
+        "parental_consent",
+        "default_privacy_settings"
+      ],
+      "regulations": [
+        "Various US state minors privacy laws"
+      ],
+      "severity": "medium",
+      "description": null,
+      "enabled": true
+    },
+    {
+      "id": "GDPR_DATA_PROCESSING",
+      "name": "GDPR Lawful Basis for Processing",
+      "logic": {
+        "and": [
+          {
+            "in": [
+              {
+                "var": "runtime.persona.country"
+              },
+              [
+                "EU",
+                "GB",
+                "CH"
+              ]
+            ]
+          },
+          {
+            "or": [
+              {
+                "in": [
+                  "user_data",
+                  {
+                    "var": "static.tags"
+                  }
+                ]
+              },
+              {
+                "in": [
+                  "eu-west",
+                  {
+                    "var": "static.data_residency.*.region"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "requires_controls": [
+        "consent_management",
+        "data_portability",
+        "right_to_erasure"
+      ],
+      "regulations": [
+        "EU GDPR"
+      ],
+      "severity": "high",
+      "description": null,
+      "enabled": true
+    }
+  ]
+}
