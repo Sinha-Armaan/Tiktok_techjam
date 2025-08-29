@@ -1,0 +1,23 @@
+{
+  "feature_id": "user_authentication",
+  "signals": {
+    "static": {
+      "geo_branching": [],
+      "age_checks": [],
+      "data_residency": [],
+      "reporting_clients": [],
+      "reco_system": false,
+      "pf_controls": false,
+      "flags": [],
+      "tags": []
+    }
+  },
+  "attachments": [],
+  "metadata": {
+    "repo": "D:\\TikTok-Clone",
+    "commit": null,
+    "branch": null,
+    "scan_timestamp": "2025-08-29 06:30:19.209892",
+    "scanner_version": null
+  }
+}

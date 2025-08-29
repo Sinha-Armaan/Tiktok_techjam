@@ -16,10 +16,14 @@ Before starting, verify you have:
   git --version
   ```
 
-- [ ] **Virtual environment** support (built into Python 3.11+)
-- [ ] **Internet connection** for package downloads
+- [ ] **Google AI Studio Account** for LLM analysis
+  - Create a free account at [Google AI Studio](https://aistudio.google.com/)
+  - Generate an API key (instructions in Step 2 below)
 
-### Optional (for full functionality):
+- [ ] **Virtual environment** support (built into Python 3.11+)
+- [ ] **Internet connection** for package downloads and API calls
+
+### Optional (for advanced functionality):
 - [ ] **Google Cloud Account** with [Vertex AI API enabled](https://console.cloud.google.com/apis/library/aiplatform.googleapis.com)
 - [ ] **Docker** for containerized deployment (optional)
 
@@ -40,7 +44,36 @@ python -m venv venv
 pip install -e .
 ```
 
-### Step 2: Verify Installation
+### Step 2: Configure Environment
+
+```powershell
+# Copy the environment template
+copy .env.example .env
+
+# Edit the .env file with your API keys
+notepad .env
+```
+
+**Required Configuration:**
+```ini
+# Google AI Studio API (Required for LLM analysis)
+GOOGLE_API_KEY=your_google_ai_studio_api_key_here
+
+# Optional: Vertex AI (alternative to Google AI Studio)
+# GOOGLE_CLOUD_PROJECT=your-project-id
+# GOOGLE_APPLICATION_CREDENTIALS=path/to/service-account.json
+
+# LLM Model Configuration
+GEMINI_MODEL=gemini-2.0-flash-exp
+```
+
+**🔑 Getting Your Google AI Studio API Key:**
+1. Visit [Google AI Studio](https://aistudio.google.com/)
+2. Sign in with your Google account
+3. Click "Get API Key" → "Create API Key"
+4. Copy the key and paste it in your `.env` file
+
+### Step 3: Verify Installation
 
 ```powershell
 # Test CLI is working
@@ -52,7 +85,7 @@ cds --help
 # Compliance Detection System - Detect geo-specific compliance requirements
 ```
 
-### Step 3: Run Demo Pipeline
+### Step 4: Run Demo Pipeline
 
 ```powershell
 # Execute the complete demo pipeline
@@ -81,7 +114,7 @@ python demo_pipeline.py
 🎉 Demo completed successfully!
 ```
 
-### Step 4: View Results
+### Step 5: View Results
 
 Open the generated HTML report in your browser:
 
@@ -151,10 +184,12 @@ The demo pipeline executed the complete CDS workflow:
 Confirm your demo worked correctly:
 
 - [ ] CLI responded to `cds --help` command
+- [ ] `.env` file configured with valid Google AI Studio API key
 - [ ] Demo script ran without Python errors
 - [ ] CSV file created in `artifacts/demo_results.csv`
 - [ ] HTML report generated and viewable
 - [ ] Report shows 3 analyzed features with compliance verdicts
+- [ ] LLM analysis sections contain actual reasoning (not mock responses)
 
 ## 🚀 Next Steps
 
@@ -194,6 +229,23 @@ cd compliance-detection-system
 pip install -e .
 ```
 
+#### ❌ "GOOGLE_API_KEY not found" or "LLM analysis failed"
+**Solution**: Ensure your `.env` file is properly configured:
+```powershell
+# Check if .env file exists
+Get-Content .env
+
+# Should contain:
+# GOOGLE_API_KEY=your_actual_api_key_here
+# GEMINI_MODEL=gemini-2.0-flash-exp
+```
+
+If missing, copy from template and add your API key:
+```powershell
+copy .env.example .env
+notepad .env  # Add your Google AI Studio API key
+```
+
 #### ❌ "No output files generated"
 **Solution**: Check permissions on the artifacts/ directory:
 ```powershell
@@ -228,5 +280,5 @@ You've successfully:
 ---
 
 **⏱️ Time to Complete**: ~10 minutes  
-**📝 Last Updated**: December 2024  
+**📝 Last Updated**: Aug 2025  
 **🔄 Next**: [User Manual](../guides/user-manual.md)

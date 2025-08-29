@@ -1,0 +1,9 @@
+feature_id,repository_path,description,priority
+user_authentication,D:\TikTok-Clone,User login and authentication system,high
+video_upload,D:\TikTok-Clone,Video upload and processing functionality,high
+content_recommendation,D:\TikTok-Clone,Content recommendation algorithm,high
+user_profile,D:\TikTok-Clone,User profile and data management,high
+social_features,D:\TikTok-Clone,Following/followers and social interactions,medium
+content_moderation,D:\TikTok-Clone,Content filtering and safety features,high
+data_collection,D:\TikTok-Clone,User data collection and privacy handling,critical
+age_verification,D:\TikTok-Clone,Age verification and minor protection,critical
