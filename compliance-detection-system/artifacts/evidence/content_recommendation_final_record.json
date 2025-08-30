@@ -1,18 +1,15 @@
 {
   "feature_id": "content_recommendation",
   "requires_geo_logic": false,
-  "reasoning": "The Rules Engine Results indicate that the feature does not require geo-specific logic (Requires Geo Logic: False). The Confidence Score is 0.00, and there are no matched rules or missing controls. The Static Analysis Evidence shows no geographic branching signals, age verification signals, or data residency signals. While parental controls are present, their existence alone does not necessitate geo-specific compliance logic without further evidence of regional variations in parental control regulations.",
+  "reasoning": "Analysis completed using fallback logic due to LLM unavailability",
   "related_regulations": [],
-  "confidence": 0.1,
+  "confidence": 0.0,
   "matched_rules": [],
   "missing_controls": [],
-  "evidence_refs": [
-    "STATIC ANALYSIS EVIDENCE",
-    "RULES ENGINE RESULTS"
-  ],
+  "evidence_refs": [],
   "code_refs": [],
-  "runtime_observation": "No runtime observations provided.",
-  "needs_review": false,
-  "severity": "low",
-  "created_at": "2025-08-30 16:47:56.130514"
+  "runtime_observation": "",
+  "needs_review": true,
+  "severity": "medium",
+  "created_at": "2025-08-30 21:15:48.394627"
 }

@@ -1,29 +1,20 @@
 {
   "feature_id": "regional_advertising_controls",
   "requires_geo_logic": true,
-  "reasoning": "The feature `regional_advertising_controls` requires geo-specific logic. The presence of geographic branching signals in `regional_content_manager.py:95` indicates that the feature behaves differently based on the user's country (CA, US, EU, AU). Additionally, the rules engine flagged the need for NCMEC reporting, which is a mandatory reporting obligation with potential geographic variations in implementation and enforcement. The age verification signal in `regional_content_manager.py:103` further supports the need for geo-specific logic, as age of majority and related regulations vary by region.",
-  "related_regulations": [
-    "NCMEC Mandatory Reporting Requirements"
-  ],
-  "confidence": 0.75,
+  "reasoning": "Analysis completed using fallback logic due to LLM unavailability",
+  "related_regulations": [],
+  "confidence": 0.13999999999999999,
   "matched_rules": [
     "NCMEC_REPORTING"
   ],
   "missing_controls": [
-    "content_moderation",
-    "ncmec_report_pipeline"
+    "ncmec_report_pipeline",
+    "content_moderation"
   ],
-  "evidence_refs": [
-    "Geographic Branching Signals",
-    "Age Verification Signals",
-    "Rules Engine Results"
-  ],
-  "code_refs": [
-    "regional_content_manager.py:95",
-    "regional_content_manager.py:103"
-  ],
-  "runtime_observation": "The feature likely tailors advertising content and user experience based on the user's geographic location and age, potentially to comply with regional advertising regulations and age-related restrictions.",
-  "needs_review": false,
+  "evidence_refs": [],
+  "code_refs": [],
+  "runtime_observation": "",
+  "needs_review": true,
   "severity": "medium",
-  "created_at": "2025-08-30 16:48:09.229985"
+  "created_at": "2025-08-30 21:15:50.164224"
 }
