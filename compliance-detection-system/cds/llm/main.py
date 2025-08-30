@@ -339,14 +339,28 @@ Analyze this evidence and provide your assessment in the following JSON format:
   "severity": "low|medium|high|critical"
 }
 
+**CONFIDENCE SCORING GUIDELINES:**
+- 0.9-1.0: Clear evidence of geo-specific compliance requirements (explicit legal references, multiple compliance signals)
+- 0.7-0.89: Strong indicators but some ambiguity (regional variations with unclear legal basis)
+- 0.4-0.69: GRAY AREA - Mixed signals, unclear intent, needs human review (e.g., "available globally except KR", vague regional restrictions)
+- 0.2-0.39: Weak indicators, likely business-driven rather than legal
+- 0.0-0.19: No evidence of geo-specific compliance requirements
+
+**GRAY AREA EXAMPLES REQUIRING HUMAN REVIEW (0.4-0.69 confidence):**
+- Regional restrictions without clear legal justification ("except certain regions")
+- Age-related controls with unclear regulatory basis
+- Data handling variations that might be business policy vs legal compliance
+- Geographic content blocking without explicit compliance reasoning
+- Implementation that partially addresses regulations but may be insufficient
+
 Focus on:
 1. Geographic variations in compliance requirements
-2. Age-related restrictions and protections
+2. Age-related restrictions and protections  
 3. Data residency and cross-border data transfer implications
 4. Mandatory reporting obligations
 5. Transparency and user control requirements
 
-Provide specific, evidence-based reasoning. Do not make assumptions beyond what is presented in the evidence.
+Provide specific, evidence-based reasoning. Flag uncertainty when evidence is ambiguous about whether geographic variations are legally required vs business-driven.
 """
         
         return prompt

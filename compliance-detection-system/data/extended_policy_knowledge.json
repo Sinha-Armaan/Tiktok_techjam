@@ -1,0 +1,43 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-08-30",
+  "regulatory_frameworks": {
+    "coppa": {
+      "full_name": "Children's Online Privacy Protection Act",
+      "jurisdiction": "US",
+      "key_requirements": [
+        "Parental consent for children under 13",
+        "Limited data collection from minors",
+        "Age verification mechanisms"
+      ]
+    },
+    "gdpr": {
+      "full_name": "General Data Protection Regulation",
+      "jurisdiction": "EU",
+      "key_requirements": [
+        "Explicit consent for data processing",
+        "Right to erasure",
+        "Data portability",
+        "Privacy by design"
+      ]
+    },
+    "utah_social_media_act": {
+      "full_name": "Utah Social Media Regulation Act",
+      "jurisdiction": "Utah, US",
+      "key_requirements": [
+        "Curfew enforcement for minors",
+        "Age verification",
+        "Parental controls"
+      ]
+    },
+    "algorithm_transparency": {
+      "full_name": "Algorithm Transparency Requirements",
+      "jurisdiction": "Various",
+      "key_requirements": [
+        "Explainable recommendations",
+        "User control over algorithm",
+        "Bias mitigation"
+      ]
+    }
+  }
+}

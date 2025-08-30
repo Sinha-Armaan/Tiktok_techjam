@@ -53,27 +53,27 @@ def create_basic_demo_dataset():
     dataset_data = [
         {
             "feature_id": "user_registration_system",
-            "repo_path": "./sample_repo",
+            "repo_path": "./dataset_variations/original_comprehensive_focused/enhanced_code",
             "description": "User registration with age verification and geographic restrictions"
         },
         {
             "feature_id": "content_recommendation_engine", 
-            "repo_path": "./sample_repo",
+            "repo_path": "./dataset_variations/original_comprehensive_focused/enhanced_code",
             "description": "Content recommendation system with CSAM detection and NCMEC reporting"
         },
         {
             "feature_id": "privacy_settings_manager",
-            "repo_path": "./sample_repo", 
+            "repo_path": "./dataset_variations/original_comprehensive_focused/enhanced_code", 
             "description": "Privacy settings with GDPR and CCPA compliance features"
         },
         {
             "feature_id": "messaging_system",
-            "repo_path": "./sample_repo",
+            "repo_path": "./dataset_variations/original_comprehensive_focused/enhanced_code",
             "description": "Direct messaging with minor protection features"
         },
         {
             "feature_id": "age_verification_gate",
-            "repo_path": "./sample_repo",
+            "repo_path": "./dataset_variations/original_comprehensive_focused/enhanced_code",
             "description": "Age gate implementation for COPPA compliance"
         }
     ]
@@ -277,7 +277,7 @@ def prepare_demo_evidence():
                 }
             },
             "attachments": [],
-            "metadata": {"repo": "./sample_repo", "scan_timestamp": "2025-08-28T10:00:00Z"}
+            "metadata": {"repo": "./dataset_variations/original_comprehensive_focused/enhanced_code", "scan_timestamp": "2025-08-28T10:00:00Z"}
         },
         
         "content_recommendation_engine": {
@@ -297,7 +297,7 @@ def prepare_demo_evidence():
                 }
             },
             "attachments": [],
-            "metadata": {"repo": "./sample_repo", "scan_timestamp": "2025-08-28T10:00:00Z"}
+            "metadata": {"repo": "./dataset_variations/original_comprehensive_focused/enhanced_code", "scan_timestamp": "2025-08-28T10:00:00Z"}
         },
         
         "privacy_settings_manager": {
@@ -319,7 +319,7 @@ def prepare_demo_evidence():
                 }
             },
             "attachments": [],
-            "metadata": {"repo": "./sample_repo", "scan_timestamp": "2025-08-28T10:00:00Z"}
+            "metadata": {"repo": "./dataset_variations/original_comprehensive_focused/enhanced_code", "scan_timestamp": "2025-08-28T10:00:00Z"}
         }
     }
     

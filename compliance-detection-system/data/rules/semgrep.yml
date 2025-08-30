@@ -1,0 +1,48 @@
+rules:
+  - id: hardcoded-secret-key
+    patterns:
+      - pattern: SECRET_KEY = "$VALUE"
+      - pattern: DATABASE_PASSWORD = "$VALUE"
+      - pattern: API_SECRET_KEY = "$VALUE"
+    message: "Hardcoded secret detected"
+    languages: [python]
+    severity: ERROR
+    
+  - id: hardcoded-database-url
+    pattern: |
+      $VAR = "postgresql://$USER:$PASS@$HOST/$DB"
+    message: "Hardcoded database credentials in connection string"
+    languages: [python]
+    severity: ERROR
+    
+  - id: sql-injection-f-string
+    patterns:
+      - pattern: |
+          f"SELECT $SQL {$VAR} $REST"
+      - pattern: |
+          f"INSERT $SQL {$VAR} $REST"
+      - pattern: |
+          f"UPDATE $SQL {$VAR} $REST"
+      - pattern: |
+          f"DELETE $SQL {$VAR} $REST"
+    message: "Potential SQL injection via f-string interpolation"
+    languages: [python]
+    severity: ERROR
+    
+  - id: direct-query-execution
+    patterns:
+      - pattern: |
+          cursor.execute($QUERY)
+      - pattern: |
+          execute($QUERY)
+    message: "Direct query execution - check for SQL injection"
+    languages: [python]
+    severity: WARNING
+    
+  - id: hardcoded-api-key
+    patterns:
+      - pattern: self.api_key = "$VALUE"
+      - pattern: api_key = "$VALUE"
+    message: "Hardcoded API key detected"
+    languages: [python]
+    severity: ERROR

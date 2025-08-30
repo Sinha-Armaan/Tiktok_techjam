@@ -283,7 +283,7 @@ class CompliancePipeline:
         
         for _, row in dataset.iterrows():
             feature_id = row["feature_id"]
-            repo_path = Path(row.get("repo_path", "./sample_repo"))
+            repo_path = Path(row.get("repo_path", "./dataset_variations/original_comprehensive_focused/enhanced_code"))
             
             try:
                 logger.info(f"Processing feature: {feature_id}")

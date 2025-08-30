@@ -31,7 +31,7 @@ def create_test_evidence() -> EvidencePack:
     # Add geo-branching signals
     static_signals.geo_branching = [
         GeoSignal(
-            file="sample_repo/user_registration.py",
+            file="dataset_variations/original_comprehensive_focused/enhanced_code/user_registration_service.py",
             line=15,
             countries=["US", "CA", "GB", "FR", "DE"],
             message="Geographic country list detected"
@@ -41,7 +41,7 @@ def create_test_evidence() -> EvidencePack:
     # Add age verification signals
     static_signals.age_checks = [
         AgeCheckSignal(
-            file="sample_repo/user_registration.py", 
+            file="dataset_variations/original_comprehensive_focused/enhanced_code/user_registration_service.py", 
             line=32,
             lib="age_gate",
             message="Age verification import found"
@@ -51,13 +51,13 @@ def create_test_evidence() -> EvidencePack:
     # Add data residency signals
     static_signals.data_residency = [
         DataResidencySignal(
-            file="sample_repo/privacy_settings.py",
+            file="dataset_variations/original_comprehensive_focused/enhanced_code/user_registration_service.py",
             line=95,
             region="us-east",
             message="Data region configuration"
         ),
         DataResidencySignal(
-            file="sample_repo/privacy_settings.py",
+            file="dataset_variations/original_comprehensive_focused/enhanced_code/user_registration_service.py",
             line=96,
             region="eu-west",
             message="EU data region configuration"
@@ -84,7 +84,7 @@ def create_test_evidence() -> EvidencePack:
     evidence = EvidencePack(
         feature_id="test_user_registration",
         metadata=EvidenceMetadata(
-            repo="./sample_repo",
+            repo="./dataset_variations/original_comprehensive_focused/enhanced_code",
             commit="test_commit"
         )
     )
