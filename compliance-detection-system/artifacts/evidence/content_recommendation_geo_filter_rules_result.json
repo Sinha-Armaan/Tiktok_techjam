@@ -1,0 +1,13 @@
+{
+  "feature_id": "content_recommendation_geo_filter",
+  "requires_geo_logic": true,
+  "confidence": 0.13999999999999999,
+  "matched_rules": [
+    "NCMEC_REPORTING"
+  ],
+  "missing_controls": [
+    "content_moderation",
+    "ncmec_report_pipeline"
+  ],
+  "evaluation_timestamp": "2025-08-30 16:48:09.232265"
+}

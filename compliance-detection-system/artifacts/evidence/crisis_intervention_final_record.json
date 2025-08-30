@@ -1,0 +1,18 @@
+{
+  "feature_id": "crisis_intervention",
+  "requires_geo_logic": false,
+  "reasoning": "The Rules Engine results indicate that the 'crisis_intervention' feature does not require geo-specific logic, with a confidence score of 0.00. This aligns with the static analysis evidence, which shows no geographic branching signals, age verification signals, or data residency signals. While the feature has parental controls enabled, this alone does not necessitate geo-specific compliance logic without further evidence of varying legal requirements for parental controls across different regions.",
+  "related_regulations": [],
+  "confidence": 0.1,
+  "matched_rules": [],
+  "missing_controls": [],
+  "evidence_refs": [
+    "Static Analysis Evidence",
+    "Rules Engine Results"
+  ],
+  "code_refs": [],
+  "runtime_observation": "No runtime observations available.",
+  "needs_review": false,
+  "severity": "low",
+  "created_at": "2025-08-30 16:47:57.934868"
+}

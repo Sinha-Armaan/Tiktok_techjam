@@ -1,0 +1,38 @@
+{
+  "feature_id": "regional_advertising_controls",
+  "signals": {
+    "static": {
+      "geo_branching": [
+        {
+          "file": "regional_content_manager.py",
+          "line": 95,
+          "countries": ["CA", "US", "EU", "AU"],
+          "message": "Regional advertising targeting restrictions - implementation partial"
+        }
+      ],
+      "age_checks": [
+        {
+          "file": "regional_content_manager.py",
+          "line": 103,
+          "lib": "age_based_targeting",
+          "message": "Age-based advertising controls - regulatory compliance uncertain"
+        }
+      ],
+      "data_residency": [],
+      "reporting_clients": [],
+      "reco_system": true,
+      "pf_controls": true,
+      "flags": [
+        {"name": "REGIONAL_AD_CONTROLS"},
+        {"name": "AGE_BASED_TARGETING"}
+      ],
+      "tags": ["advertising", "targeting", "regional_compliance", "age_protection_uncertain"]
+    }
+  },
+  "attachments": [],
+  "metadata": {
+    "repo": "dataset_variations\\original_comprehensive_focused\\enhanced_code",
+    "potential_regulations": ["COPPA", "California_CCPA", "GDPR_advertising", "Australia_Privacy_Act"],
+    "implementation_adequacy": "partially_compliant"
+  }
+}

@@ -1,1 +1,6 @@
+# Keep virtual environments out of Git
 /venv
+venv/
+.venv/
+env/
+.env/

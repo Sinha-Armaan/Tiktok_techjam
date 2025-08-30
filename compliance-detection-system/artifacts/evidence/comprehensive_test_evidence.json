@@ -1,0 +1,20 @@
+{
+  "test_categories": [
+    "User Registration (COPPA compliance)",
+    "Content Recommendation (Privacy compliance)",
+    "Crisis Intervention (Safety compliance)",
+    "Age Verification (Multi-regulation compliance)",
+    "Privacy and Data Protection (GDPR compliance)",
+    "Performance and Reliability"
+  ],
+  "compliance_domains": [
+    "COPPA",
+    "GDPR",
+    "Utah Social Media Act",
+    "EU DSA",
+    "CCPA",
+    "HIPAA",
+    "NCMEC Reporting"
+  ],
+  "test_case_file": "data\\artifacts\\comprehensive_test_cases.md"
+}

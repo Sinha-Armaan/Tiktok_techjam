@@ -1,0 +1,8 @@
+{
+  "feature_id": "regional_content_block",
+  "requires_geo_logic": false,
+  "confidence": 0.0,
+  "matched_rules": [],
+  "missing_controls": [],
+  "evaluation_timestamp": "2025-08-30 16:47:59.777484"
+}

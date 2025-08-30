@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "regulation_count": 4,
+  "compliance_frameworks": 0,
+  "regulations": {
+    "coppa": {
+      "title": "Children's Online Privacy Protection Act",
+      "jurisdiction": "US",
+      "effective_date": "N/A",
+      "key_requirements_count": 3,
+      "compliance_mechanisms_count": 0,
+      "penalties": "Not specified"
+    },
+    "gdpr": {
+      "title": "General Data Protection Regulation",
+      "jurisdiction": "EU",
+      "effective_date": "N/A",
+      "key_requirements_count": 4,
+      "compliance_mechanisms_count": 0,
+      "penalties": "Not specified"
+    },
+    "utah_social_media_act": {
+      "title": "Utah Social Media Regulation Act",
+      "jurisdiction": "Utah, US",
+      "effective_date": "N/A",
+      "key_requirements_count": 3,
+      "compliance_mechanisms_count": 0,
+      "penalties": "Not specified"
+    },
+    "algorithm_transparency": {
+      "title": "Algorithm Transparency Requirements",
+      "jurisdiction": "Various",
+      "effective_date": "N/A",
+      "key_requirements_count": 3,
+      "compliance_mechanisms_count": 0,
+      "penalties": "Not specified"
+    }
+  }
+}

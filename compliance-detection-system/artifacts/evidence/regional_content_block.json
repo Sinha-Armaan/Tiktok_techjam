@@ -1,0 +1,45 @@
+{
+  "feature_id": "regional_content_block",
+  "signals": {
+    "static": {
+      "geo_branching": [
+        {
+          "file": "regional_content_manager.py",
+          "line": 12,
+          "countries": ["US", "EU", "CA", "FL"],
+          "message": "Regional content policies with mixed legal/business rationale"
+        }
+      ],
+      "age_checks": [
+        {
+          "file": "regional_content_manager.py", 
+          "line": 35,
+          "lib": "age_restrictions",
+          "message": "Age-based restrictions - unclear if legally sufficient"
+        }
+      ],
+      "data_residency": [
+        {
+          "file": "regional_content_manager.py",
+          "line": 125,
+          "region": "EU",
+          "message": "Data retention policies with uncertain compliance"
+        }
+      ],
+      "reporting_clients": [],
+      "reco_system": false,
+      "pf_controls": true,
+      "flags": [
+        {"name": "PARENTAL_VERIFICATION_REQUIRED"},
+        {"name": "REGIONAL_CONTENT_BLOCKING"}
+      ],
+      "tags": ["content_blocking", "parental_controls", "data_retention", "compliance_gray_area"]
+    }
+  },
+  "attachments": [],
+  "metadata": {
+    "repo": "dataset_variations\\original_comprehensive_focused\\enhanced_code",
+    "compliance_certainty": "medium",
+    "requires_legal_review": true
+  }
+}

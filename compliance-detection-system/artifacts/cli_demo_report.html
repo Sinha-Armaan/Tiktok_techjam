@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance Detection System Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header { border-bottom: 2px solid #007acc; padding-bottom: 20px; margin-bottom: 20px; }
+        .header h1 { color: #007acc; margin: 0; }
+        .header .subtitle { color: #666; margin-top: 5px; }
+        .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .summary-card { background: #f8f9fa; padding: 15px; border-radius: 5px; text-align: center; border-left: 4px solid #007acc; }
+        .summary-card h3 { margin: 0 0 10px 0; font-size: 1.8em; color: #007acc; }
+        .summary-card p { margin: 0; color: #666; }
+        .results-section h2 { color: #333; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+        .result-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 20px; margin-bottom: 20px; }
+        .result-header { display: flex; justify-content: between; align-items: center; margin-bottom: 15px; }
+        .result-header h3 { margin: 0; color: #333; }
+        .severity { padding: 3px 8px; border-radius: 3px; color: white; font-size: 0.8em; font-weight: bold; }
+        .severity.low { background-color: #28a745; }
+        .severity.medium { background-color: #ffc107; color: #000; }
+        .severity.high { background-color: #fd7e14; }
+        .severity.critical { background-color: #dc3545; }
+        .confidence { float: right; color: #666; }
+        .reasoning { margin: 15px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; line-height: 1.5; }
+        .regulations { margin: 10px 0; }
+        .regulations ul { margin: 5px 0; padding-left: 20px; }
+        .code-refs { margin: 10px 0; font-family: monospace; font-size: 0.9em; background: #f1f1f1; padding: 10px; border-radius: 5px; }
+        .missing-controls { color: #d63031; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #666; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Compliance Detection System Report</h1>
+            <div class="subtitle">Generated on 2025-08-31T00:48:11.562983</div>
+        </div>
+        
+        <div class="summary">
+            <div class="summary-card">
+                <h3>9</h3>
+                <p>Total Features</p>
+            </div>
+            <div class="summary-card">
+                <h3>5</h3>
+                <p>Require Geo Logic</p>
+            </div>
+            <div class="summary-card">
+                <h3>1</h3>
+                <p>High/Critical Severity</p>
+            </div>
+            <div class="summary-card">
+                <h3>0</h3>
+                <p>Need Review</p>
+            </div>
+            
+            <div class="summary-card">
+                <h3>47.8%</h3>
+                <p>Avg Confidence</p>
+            </div>
+            
+        </div>
+        
+        <div class="results-section">
+            <h2>Compliance Analysis Results</h2>
+            
+            
+            <div class="result-card">
+                <div class="result-header">
+                    <h3>user_registration</h3>
+                    <div>
+                        <span class="severity low">LOW</span>
+                        <span class="confidence">10% confidence</span>
+                    </div>
+                </div>
+                
+                <div class="reasoning">
+                    <strong>Analysis:</strong> Based on the provided evidence, the 'user_registration' feature does not require geo-specific compliance logic. The static analysis found no geographic branching signals, age verification signals, or data residency signals. The rules engine also indicates that no geo logic is required, with a confidence score of 0.00 and no matched rules or missing controls.
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="runtime-obs">
+                    <strong>Runtime Observations:</strong> No runtime behavior observations provided.
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="result-card">
+                <div class="result-header">
+                    <h3>content_recommendation</h3>
+                    <div>
+                        <span class="severity low">LOW</span>
+                        <span class="confidence">10% confidence</span>
+                    </div>
+                </div>
+                
+                <div class="reasoning">
+                    <strong>Analysis:</strong> The Rules Engine Results indicate that the feature does not require geo-specific logic (Requires Geo Logic: False). The Confidence Score is 0.00, and there are no matched rules or missing controls. The Static Analysis Evidence shows no geographic branching signals, age verification signals, or data residency signals. While parental controls are present, their existence alone does not necessitate geo-specific compliance logic without further evidence of regional variations in parental control regulations.
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="runtime-obs">
+                    <strong>Runtime Observations:</strong> No runtime observations provided.
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="result-card">
+                <div class="result-header">
+                    <h3>crisis_intervention</h3>
+                    <div>
+                        <span class="severity low">LOW</span>
+                        <span class="confidence">10% confidence</span>
+                    </div>
+                </div>
+                
+                <div class="reasoning">
+                    <strong>Analysis:</strong> The Rules Engine results indicate that the 'crisis_intervention' feature does not require geo-specific logic, with a confidence score of 0.00. This aligns with the static analysis evidence, which shows no geographic branching signals, age verification signals, or data residency signals. While the feature has parental controls enabled, this alone does not necessitate geo-specific compliance logic without further evidence of varying legal requirements for parental controls across different regions.
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="runtime-obs">
+                    <strong>Runtime Observations:</strong> No runtime observations available.
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="result-card">
+                <div class="result-header">
+                    <h3>ambiguous_filter_feature</h3>
+                    <div>
+                        <span class="severity low">LOW</span>
+                        <span class="confidence">0% confidence</span>
+                    </div>
+                </div>
+                
+                <div class="reasoning">
+                    <strong>Analysis:</strong> Based on the provided evidence, the feature 'ambiguous_filter_feature' does not require geo-specific compliance logic. The Rules Engine Results indicate 'Requires Geo Logic: False' with a confidence score of 0.00. The static analysis found no geographic branching signals, age verification signals, or data residency signals. There are no reporting clients, recommendation systems, or parental controls associated with this feature. Therefore, there is no indication of any geo-specific compliance requirements.
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="runtime-obs">
+                    <strong>Runtime Observations:</strong> No runtime behavior observations available.
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="result-card">
+                <div class="result-header">
+                    <h3>regional_content_block</h3>
+                    <div>
+                        <span class="severity high">HIGH</span>
+                        <span class="confidence">90% confidence</span>
+                    </div>
+                </div>
+                
+                <div class="reasoning">
+                    <strong>Analysis:</strong> The feature `regional_content_block` exhibits several indicators that necessitate geo-specific compliance logic. The presence of geographic branching signals in `regional_content_manager.py:12` indicates content variations based on countries like 'US', 'EU', 'CA', and 'FL'. The data residency signal in `regional_content_manager.py:125` specifying 'EU' further strengthens the need for geo-specific logic. The age verification signal in `regional_content_manager.py:35` using the `age_restrictions` library also suggests compliance with varying age-related regulations across different regions. The presence of parental controls further reinforces the need for geo-specific compliance logic, as parental consent and control requirements vary significantly across jurisdictions.
+                </div>
+                
+                
+                <div class="regulations">
+                    <strong>Related Regulations:</strong>
+                    <ul>
+                        
+                        <li>GDPR</li>
+                        
+                        <li>CCPA</li>
+                        
+                        <li>COPPA</li>
+                        
+                        <li>PIPEDA</li>
+                        
+                    </ul>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                <div class="code-refs">
+                    <strong>Code References:</strong><br>
+                    regional_content_manager.py:12<br>regional_content_manager.py:35<br>regional_content_manager.py:125
+                </div>
+                
+                
+                
+                <div class="runtime-obs">
+                    <strong>Runtime Observations:</strong> The feature likely tailors content, data storage, and age verification processes based on the user's geographic location, potentially impacting data privacy and user experience.
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="result-card">
+                <div class="result-header">
+                    <h3>age_gated_messaging</h3>
+                    <div>
+                        <span class="severity medium">MEDIUM</span>
+                        <span class="confidence">80% confidence</span>
+                    </div>
+                </div>
+                
+                <div class="reasoning">
+                    <strong>Analysis:</strong> The feature `age_gated_messaging` requires geo-specific compliance logic. The presence of geographic branching signals in `regional_content_manager.py:45` indicates that the application logic varies based on the user's country (CA, FL, EU, US). Additionally, the use of the `parental_consent` library at `regional_content_manager.py:67` suggests that age verification and parental consent mechanisms are in place, which are often subject to geo-specific regulations like GDPR-K and COPPA. The combination of geographic branching and age verification strongly suggests the need for geo-specific compliance logic.
+                </div>
+                
+                
+                <div class="regulations">
+                    <strong>Related Regulations:</strong>
+                    <ul>
+                        
+                        <li>GDPR-K</li>
+                        
+                        <li>COPPA</li>
+                        
+                    </ul>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                <div class="code-refs">
+                    <strong>Code References:</strong><br>
+                    regional_content_manager.py:45<br>regional_content_manager.py:67
+                </div>
+                
+                
+                
+                <div class="runtime-obs">
+                    <strong>Runtime Observations:</strong> The application likely adapts its messaging and age verification processes based on the user's geographic location.
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="result-card">
+                <div class="result-header">
+                    <h3>cross_border_data_sharing</h3>
+                    <div>
+                        <span class="severity medium">MEDIUM</span>
+                        <span class="confidence">80% confidence</span>
+                    </div>
+                </div>
+                
+                <div class="reasoning">
+                    <strong>Analysis:</strong> The presence of geographic branching signals in `regional_content_manager.py:78` indicating different countries (EU, CA, IN, AU) and data residency signals for the EU in `regional_content_manager.py:85` strongly suggests the feature requires geo-specific compliance logic. The data residency signal for the EU is a strong indicator of compliance requirements such as GDPR.
+                </div>
+                
+                
+                <div class="regulations">
+                    <strong>Related Regulations:</strong>
+                    <ul>
+                        
+                        <li>GDPR</li>
+                        
+                        <li>PIPEDA</li>
+                        
+                        <li>CCPA</li>
+                        
+                        <li>APPI</li>
+                        
+                    </ul>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                <div class="code-refs">
+                    <strong>Code References:</strong><br>
+                    regional_content_manager.py:78<br>regional_content_manager.py:85
+                </div>
+                
+                
+                
+                <div class="runtime-obs">
+                    <strong>Runtime Observations:</strong> Need to observe runtime behavior to confirm that the geographic branching and data residency logic are correctly applied based on the user's location and data.
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="result-card">
+                <div class="result-header">
+                    <h3>regional_advertising_controls</h3>
+                    <div>
+                        <span class="severity medium">MEDIUM</span>
+                        <span class="confidence">75% confidence</span>
+                    </div>
+                </div>
+                
+                <div class="reasoning">
+                    <strong>Analysis:</strong> The feature `regional_advertising_controls` requires geo-specific logic. The presence of geographic branching signals in `regional_content_manager.py:95` indicates that the feature behaves differently based on the user's country (CA, US, EU, AU). Additionally, the rules engine flagged the need for NCMEC reporting, which is a mandatory reporting obligation with potential geographic variations in implementation and enforcement. The age verification signal in `regional_content_manager.py:103` further supports the need for geo-specific logic, as age of majority and related regulations vary by region.
+                </div>
+                
+                
+                <div class="regulations">
+                    <strong>Related Regulations:</strong>
+                    <ul>
+                        
+                        <li>NCMEC Mandatory Reporting Requirements</li>
+                        
+                    </ul>
+                </div>
+                
+                
+                
+                <div class="matched-rules">
+                    <strong>Matched Rules:</strong> NCMEC_REPORTING
+                </div>
+                
+                
+                
+                <div class="missing-controls">
+                    <strong>Missing Controls:</strong> content_moderation, ncmec_report_pipeline
+                </div>
+                
+                
+                
+                <div class="code-refs">
+                    <strong>Code References:</strong><br>
+                    regional_content_manager.py:95<br>regional_content_manager.py:103
+                </div>
+                
+                
+                
+                <div class="runtime-obs">
+                    <strong>Runtime Observations:</strong> The feature likely tailors advertising content and user experience based on the user's geographic location and age, potentially to comply with regional advertising regulations and age-related restrictions.
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="result-card">
+                <div class="result-header">
+                    <h3>content_recommendation_geo_filter</h3>
+                    <div>
+                        <span class="severity medium">MEDIUM</span>
+                        <span class="confidence">75% confidence</span>
+                    </div>
+                </div>
+                
+                <div class="reasoning">
+                    <strong>Analysis:</strong> The feature requires geo-specific logic because the Rules Engine flagged the 'NCMEC_REPORTING' rule as matching, indicating a need to comply with mandatory reporting requirements related to child sexual abuse material (CSAM). The static analysis also found geographic branching signals in `regional_content_manager.py:112` for countries including the US, EU, IN, and AU, suggesting that content recommendations are already being handled differently based on location. While the geographic branching itself might be business-driven, the NCMEC reporting requirement necessitates geo-specific logic to ensure compliance with mandatory reporting laws.
+                </div>
+                
+                
+                <div class="regulations">
+                    <strong>Related Regulations:</strong>
+                    <ul>
+                        
+                        <li>NCMEC Mandatory Reporting Requirements</li>
+                        
+                    </ul>
+                </div>
+                
+                
+                
+                <div class="matched-rules">
+                    <strong>Matched Rules:</strong> NCMEC_REPORTING
+                </div>
+                
+                
+                
+                <div class="missing-controls">
+                    <strong>Missing Controls:</strong> content_moderation, ncmec_report_pipeline
+                </div>
+                
+                
+                
+                <div class="code-refs">
+                    <strong>Code References:</strong><br>
+                    regional_content_manager.py:112
+                </div>
+                
+                
+                
+                <div class="runtime-obs">
+                    <strong>Runtime Observations:</strong> No runtime observations provided.
+                </div>
+                
+                
+                
+            </div>
+            
+        </div>
+        
+        <div class="footer">
+            <p>Generated by Compliance Detection System (CDS) v0.1.0</p>
+            <p>This report contains compliance analysis based on static code analysis, runtime probing, and AI-powered reasoning.</p>
+        </div>
+    </div>
+</body>
+</html>
+        

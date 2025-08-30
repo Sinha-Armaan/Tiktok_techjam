@@ -1,0 +1,26 @@
+{
+  "feature_id": "cross_border_data_sharing",
+  "requires_geo_logic": true,
+  "reasoning": "The presence of geographic branching signals in `regional_content_manager.py:78` indicating different countries (EU, CA, IN, AU) and data residency signals for the EU in `regional_content_manager.py:85` strongly suggests the feature requires geo-specific compliance logic. The data residency signal for the EU is a strong indicator of compliance requirements such as GDPR.",
+  "related_regulations": [
+    "GDPR",
+    "PIPEDA",
+    "CCPA",
+    "APPI"
+  ],
+  "confidence": 0.8,
+  "matched_rules": [],
+  "missing_controls": [],
+  "evidence_refs": [
+    "Geographic Branching Signals",
+    "Data Residency Signals"
+  ],
+  "code_refs": [
+    "regional_content_manager.py:78",
+    "regional_content_manager.py:85"
+  ],
+  "runtime_observation": "Need to observe runtime behavior to confirm that the geographic branching and data residency logic are correctly applied based on the user's location and data.",
+  "needs_review": false,
+  "severity": "medium",
+  "created_at": "2025-08-30 16:48:06.760694"
+}

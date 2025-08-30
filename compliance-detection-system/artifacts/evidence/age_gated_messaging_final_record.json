@@ -1,0 +1,24 @@
+{
+  "feature_id": "age_gated_messaging",
+  "requires_geo_logic": true,
+  "reasoning": "The feature `age_gated_messaging` requires geo-specific compliance logic. The presence of geographic branching signals in `regional_content_manager.py:45` indicates that the application logic varies based on the user's country (CA, FL, EU, US). Additionally, the use of the `parental_consent` library at `regional_content_manager.py:67` suggests that age verification and parental consent mechanisms are in place, which are often subject to geo-specific regulations like GDPR-K and COPPA. The combination of geographic branching and age verification strongly suggests the need for geo-specific compliance logic.",
+  "related_regulations": [
+    "GDPR-K",
+    "COPPA"
+  ],
+  "confidence": 0.8,
+  "matched_rules": [],
+  "missing_controls": [],
+  "evidence_refs": [
+    "Geographic Branching Signals",
+    "Age Verification Signals"
+  ],
+  "code_refs": [
+    "regional_content_manager.py:45",
+    "regional_content_manager.py:67"
+  ],
+  "runtime_observation": "The application likely adapts its messaging and age verification processes based on the user's geographic location.",
+  "needs_review": false,
+  "severity": "medium",
+  "created_at": "2025-08-30 16:48:04.734272"
+}

@@ -1,0 +1,8 @@
+{
+  "feature_id": "advertising_targeting",
+  "requires_geo_logic": false,
+  "confidence": 0.0,
+  "matched_rules": [],
+  "missing_controls": [],
+  "evaluation_timestamp": "2025-08-29 10:08:50.662640"
+}

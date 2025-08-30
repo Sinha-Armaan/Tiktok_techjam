@@ -1,0 +1,27 @@
+{
+  "feature_id": "content_recommendation_geo_filter",
+  "requires_geo_logic": true,
+  "reasoning": "The feature requires geo-specific logic because the Rules Engine flagged the 'NCMEC_REPORTING' rule as matching, indicating a need to comply with mandatory reporting requirements related to child sexual abuse material (CSAM). The static analysis also found geographic branching signals in `regional_content_manager.py:112` for countries including the US, EU, IN, and AU, suggesting that content recommendations are already being handled differently based on location. While the geographic branching itself might be business-driven, the NCMEC reporting requirement necessitates geo-specific logic to ensure compliance with mandatory reporting laws.",
+  "related_regulations": [
+    "NCMEC Mandatory Reporting Requirements"
+  ],
+  "confidence": 0.75,
+  "matched_rules": [
+    "NCMEC_REPORTING"
+  ],
+  "missing_controls": [
+    "content_moderation",
+    "ncmec_report_pipeline"
+  ],
+  "evidence_refs": [
+    "Rules Engine Results",
+    "STATIC ANALYSIS EVIDENCE"
+  ],
+  "code_refs": [
+    "regional_content_manager.py:112"
+  ],
+  "runtime_observation": "No runtime observations provided.",
+  "needs_review": false,
+  "severity": "medium",
+  "created_at": "2025-08-30 16:48:11.560521"
+}

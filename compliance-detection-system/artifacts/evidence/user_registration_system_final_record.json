@@ -1,0 +1,18 @@
+{
+  "feature_id": "user_registration_system",
+  "requires_geo_logic": false,
+  "reasoning": "Based on the provided evidence, the user_registration_system does not require geo-specific compliance logic. The Rules Engine Results indicate 'Requires Geo Logic: False' with a confidence score of 0.00. The static analysis found no geographic branching signals, age verification signals, or data residency signals. While parental controls are present, this alone does not necessitate geo-specific logic based on the provided evidence.",
+  "related_regulations": [],
+  "confidence": 0.9,
+  "matched_rules": [],
+  "missing_controls": [],
+  "evidence_refs": [
+    "STATIC ANALYSIS EVIDENCE",
+    "RULES ENGINE RESULTS"
+  ],
+  "code_refs": [],
+  "runtime_observation": "No runtime observations provided.",
+  "needs_review": false,
+  "severity": "low",
+  "created_at": "2025-08-29 07:32:14.262686"
+}

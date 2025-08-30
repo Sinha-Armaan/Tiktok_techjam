@@ -1,0 +1,23 @@
+{
+  "feature_id": "privacy_settings_manager",
+  "signals": {
+    "static": {
+      "geo_branching": [],
+      "age_checks": [],
+      "data_residency": [],
+      "reporting_clients": [],
+      "reco_system": false,
+      "pf_controls": true,
+      "flags": [],
+      "tags": []
+    }
+  },
+  "attachments": [],
+  "metadata": {
+    "repo": "sample_repo",
+    "commit": null,
+    "branch": null,
+    "scan_timestamp": "2025-08-29 07:32:19.364718",
+    "scanner_version": null
+  }
+}

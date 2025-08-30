@@ -1,0 +1,31 @@
+{
+  "feature_id": "content_recommendation_geo_filter",
+  "signals": {
+    "static": {
+      "geo_branching": [
+        {
+          "file": "regional_content_manager.py",
+          "line": 112,
+          "countries": ["US", "EU", "IN", "AU"],
+          "message": "Geographic content filtering - scope and effectiveness unclear"
+        }
+      ],
+      "age_checks": [],
+      "data_residency": [],
+      "reporting_clients": [],
+      "reco_system": true,
+      "pf_controls": false,
+      "flags": [
+        {"name": "GEO_CONTENT_FILTER"},
+        {"name": "RECOMMENDATION_FILTERING"}
+      ],
+      "tags": ["content_filtering", "geo_compliance", "recommendation_system", "regulatory_uncertainty"]
+    }
+  },
+  "attachments": [],
+  "metadata": {
+    "repo": "dataset_variations\\original_comprehensive_focused\\enhanced_code",
+    "potential_regulations": ["Digital_Services_Act", "Online_Safety_Act", "Section_230"],
+    "implementation_adequacy": "uncertain"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "feature_id": "age_gated_messaging",
+  "requires_geo_logic": false,
+  "confidence": 0.0,
+  "matched_rules": [],
+  "missing_controls": [],
+  "evaluation_timestamp": "2025-08-30 16:48:02.368887"
+}

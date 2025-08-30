@@ -1,0 +1,38 @@
+{
+  "feature_id": "age_gated_messaging",
+  "signals": {
+    "static": {
+      "geo_branching": [
+        {
+          "file": "regional_content_manager.py",
+          "line": 45,
+          "countries": ["CA", "FL", "EU", "US"],
+          "message": "Age-gated messaging with regional variations - purpose unclear"
+        }
+      ],
+      "age_checks": [
+        {
+          "file": "regional_content_manager.py", 
+          "line": 67,
+          "lib": "parental_consent",
+          "message": "Parental consent mechanisms - compliance adequacy uncertain"
+        }
+      ],
+      "data_residency": [],
+      "reporting_clients": [],
+      "reco_system": false,
+      "pf_controls": true,
+      "flags": [
+        {"name": "MESSAGING_AGE_CONTROLS"},
+        {"name": "PARENTAL_CONSENT_FLOW"}
+      ],
+      "tags": ["messaging", "age_verification", "parental_controls", "state_compliance_uncertain"]
+    }
+  },
+  "attachments": [],
+  "metadata": {
+    "repo": "dataset_variations\\original_comprehensive_focused\\enhanced_code",
+    "potential_regulations": ["COPPA", "California_minor_protection", "Florida_minor_protection"],
+    "implementation_adequacy": "uncertain"
+  }
+}

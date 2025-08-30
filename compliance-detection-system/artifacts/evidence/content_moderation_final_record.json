@@ -1,0 +1,18 @@
+{
+  "feature_id": "content_moderation",
+  "requires_geo_logic": false,
+  "reasoning": "The Rules Engine Results indicate that the feature does not require geo-specific logic (Requires Geo Logic: False, Confidence Score: 0.00). This is supported by the static analysis evidence, which shows no geographic branching signals, age verification signals, or data residency signals. While the feature has parental controls, the evidence does not indicate that these controls necessitate geo-specific compliance logic.",
+  "related_regulations": [],
+  "confidence": 1.0,
+  "matched_rules": [],
+  "missing_controls": [],
+  "evidence_refs": [
+    "STATIC ANALYSIS EVIDENCE",
+    "RULES ENGINE RESULTS"
+  ],
+  "code_refs": [],
+  "runtime_observation": "No runtime observations provided.",
+  "needs_review": false,
+  "severity": "low",
+  "created_at": "2025-08-29 10:08:46.851667"
+}

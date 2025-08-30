@@ -1,0 +1,38 @@
+{
+  "feature_id": "cross_border_data_sharing",
+  "signals": {
+    "static": {
+      "geo_branching": [
+        {
+          "file": "regional_content_manager.py",
+          "line": 78,
+          "countries": ["EU", "CA", "IN", "AU"],
+          "message": "Cross-border data sharing controls - adequacy unclear"
+        }
+      ],
+      "age_checks": [],
+      "data_residency": [
+        {
+          "file": "regional_content_manager.py",
+          "line": 85,
+          "region": "EU",
+          "message": "Regional data storage logic - compliance extent uncertain"
+        }
+      ],
+      "reporting_clients": [],
+      "reco_system": false,
+      "pf_controls": false,
+      "flags": [
+        {"name": "CROSS_BORDER_SHARING"},
+        {"name": "DATA_LOCALIZATION"}
+      ],
+      "tags": ["data_residency", "cross_border", "gdpr_uncertain", "ccpa_uncertain"]
+    }
+  },
+  "attachments": [],
+  "metadata": {
+    "repo": "dataset_variations\\original_comprehensive_focused\\enhanced_code",
+    "potential_regulations": ["GDPR", "CCPA", "PIPEDA", "Data_Protection_Act_IN"],
+    "implementation_adequacy": "partially_compliant"
+  }
+}

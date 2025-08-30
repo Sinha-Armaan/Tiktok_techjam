@@ -1,0 +1,13 @@
+{
+  "feature_id": "test_user_registration",
+  "requires_geo_logic": true,
+  "confidence": 0.13999999999999999,
+  "matched_rules": [
+    "NCMEC_REPORTING"
+  ],
+  "missing_controls": [
+    "content_moderation",
+    "ncmec_report_pipeline"
+  ],
+  "evaluation_timestamp": "2025-08-30 14:01:39.758062"
+}

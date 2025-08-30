@@ -1,0 +1,29 @@
+{
+  "feature_id": "regional_content_block",
+  "requires_geo_logic": true,
+  "reasoning": "The feature `regional_content_block` exhibits several indicators that necessitate geo-specific compliance logic. The presence of geographic branching signals in `regional_content_manager.py:12` indicates content variations based on countries like 'US', 'EU', 'CA', and 'FL'. The data residency signal in `regional_content_manager.py:125` specifying 'EU' further strengthens the need for geo-specific logic. The age verification signal in `regional_content_manager.py:35` using the `age_restrictions` library also suggests compliance with varying age-related regulations across different regions. The presence of parental controls further reinforces the need for geo-specific compliance logic, as parental consent and control requirements vary significantly across jurisdictions.",
+  "related_regulations": [
+    "GDPR",
+    "CCPA",
+    "COPPA",
+    "PIPEDA"
+  ],
+  "confidence": 0.9,
+  "matched_rules": [],
+  "missing_controls": [],
+  "evidence_refs": [
+    "Geographic Branching Signals",
+    "Age Verification Signals",
+    "Data Residency Signals",
+    "Parental Controls"
+  ],
+  "code_refs": [
+    "regional_content_manager.py:12",
+    "regional_content_manager.py:35",
+    "regional_content_manager.py:125"
+  ],
+  "runtime_observation": "The feature likely tailors content, data storage, and age verification processes based on the user's geographic location, potentially impacting data privacy and user experience.",
+  "needs_review": false,
+  "severity": "high",
+  "created_at": "2025-08-30 16:48:02.366823"
+}

@@ -1,0 +1,18 @@
+{
+  "feature_id": "data_export_service",
+  "requires_geo_logic": false,
+  "reasoning": "The Rules Engine Results indicate that the data_export_service does not require geo-specific logic (Requires Geo Logic: False, Confidence Score: 0.00, Matched Rules: []). The Static Analysis Evidence shows no Geographic Branching Signals, Data Residency Signals, or Reporting Clients. Although Parental Controls are present (Parental Controls: True), this alone does not necessitate geo-specific logic based on the provided evidence.",
+  "related_regulations": [],
+  "confidence": 1.0,
+  "matched_rules": [],
+  "missing_controls": [],
+  "evidence_refs": [
+    "Rules Engine Results",
+    "Static Analysis Evidence"
+  ],
+  "code_refs": [],
+  "runtime_observation": "No runtime observations provided.",
+  "needs_review": false,
+  "severity": "low",
+  "created_at": "2025-08-29 07:32:28.485804"
+}
